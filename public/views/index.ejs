@@ -1,0 +1,64 @@
+<% include public/views/header.ejs %>
+<% include public/views/no_print.ejs %>
+
+<div class="row" id="topMast">
+	<div class="small-6 columns">
+		<h2>NNSP Incident Form - 2018</h2>
+	</div>
+	<div class="small-2 columns"><br>v.2018.01</div>
+	<div class="small-2 columns vertical-center"><span class="button">Start New</span></div>
+	<div class="small-2 columns center">
+		<img src='public/images/NSP_Logo.png' alt='NSP Logo' id='nspLogo' width="80" height="100">
+	</div>
+</div>
+<div class="panel radius">
+	<form id='mainForm'>
+		<div class="row">
+			<fieldset id='dateTime'>
+				<legend>Date &amp; Time</legend>
+			<div class="small-4 columns">
+				<span class="label">Day</span><br>
+				<input name='day' id='day' type='text' required>
+			</div>
+			<div class="small-4 columns">
+				<span class="label">Date</span><br>
+				<input name='date' id='date' type='text' required>
+			</div>
+			<div class="small-4 columns end">
+				<span class="label">Incident Time</span><br>
+				<input name='incidentTime' id="incidentTime" type='time' autofocus required>
+			</div>
+			</fieldset>
+		</div>
+
+
+			<% include public/views/personal_info.ejs %>
+
+			<% include public/views/patient_history.ejs %>
+
+			<% include public/views/locations_history.ejs %>
+
+			<% include public/views/equipment.ejs %>
+
+			<% include public/views/incidentDesc_conditions.ejs %>
+
+			<% include public/views/injury_data.ejs %>
+
+			<% include public/views/firstAid_patrollers_transDest.ejs %>
+
+			<% include public/views/witness_completer.ejs %>
+
+			<div class="row">
+				<fieldset id='buttons'>
+					<div class="small-3 columns">
+						<input type='submit' id='completed' value='Completed!' class="button large">
+					</div>
+					<div class="small-3 columns float-right">
+						<a href="#" class="button large alert float-right" id="reset">Reset Form</a>
+					</div>
+				</fieldset>
+			</div>
+	</form>
+</div>
+
+<% include public/views/footer.ejs %>

@@ -1,0 +1,16 @@
+{
+  "name": "2017.nnsp.incident.form",
+  "version": "0.0.1",
+  "description": "For generating Ski Patrol incident forms",
+  "main": "bin/server",
+  "scripts": {
+    "start": "node bin/server"
+  },
+  "author": "Howard Bates",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "latest",
+    "formidable": "latest",
+    "nedb": "latest"
+  }
+}
