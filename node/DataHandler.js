@@ -17,9 +17,17 @@ class DataHandler {
           });
      }
 
-     static setZipData(callback) {
-          const FILE_PATH = 'data/ZipCodeDB.csv';
-          FS.readFile(FILE_PATH, 'utf8', (err, file) => {
+     static setBaseData(data, callback) {
+          let filePath;
+          if (data === 'zip') {
+              filePath = 'data/ZipCodeDB.csv';
+          } else if (data === 'hills') {
+              filePath = 'data/hills.csv';
+          } else if (data === 'lifts') {
+              filePath = 'data/lifts.csv';
+          }
+
+          FS.readFile(filePath, 'utf8', (err, file) => {
                const COLUMNS = 3;
                let tempArray, finalData = [];
                tempArray = file.split(/\r?\n/); //remove newlines
