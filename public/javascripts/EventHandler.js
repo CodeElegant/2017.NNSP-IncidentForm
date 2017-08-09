@@ -7,10 +7,11 @@ export default class EventHandler {
         this._zipData = null, this._hills = null, this._lifts = null, this._patrollers = null;
         this.loadZipData();
         this.loadHills();
-        // this.loadLifts();
-        // this.loadPatrollers();
+        this.loadLifts();
+        this.loadPatrollers();
         this.calculateAge(year, month, day);
-        // this.handlePatientZip();
+        this.handlePatientZip();
+        this.handleLocation();
     }
 
     loadZipData() {
@@ -56,9 +57,38 @@ export default class EventHandler {
                 if (document.getElementById('patientZip').value === element[0]) {
                     document.getElementById('patientCity').value = element[1];
                     document.getElementById('patientState').value = element[2];
+                    console.log(document.getElementById('patientCity').value);
                     break;
                 }
             }
+        });
+    }
+
+    handleLocation() {
+        let locations = document.forms[0].elements['location'];
+        locations[0].addEventListener('click', () => {
+            document.getElementById('lifts').style.display = 'block';
+            document.getElementById('hills').style.display = 'none';
+            for (let element of this.lifts) {
+                let option = document.createElement('option');
+                option.text = element;
+                option.value = element;
+                document.getElementById('whichLift').appendChild(option);
+            }
+        });
+        locations[1].addEventListener('click', () => {
+            document.getElementById('lifts').style.display = 'none';
+            document.getElementById('hills').style.display = 'block';
+            for (let element of this.hills) {
+                let option = document.createElement('option');
+                option.text = element;
+                option.value = element;
+                document.getElementById('whichHill').appendChild(option);
+            }
+        });
+        locations[2].addEventListener('click', () => {
+            document.getElementById('lifts').style.display = 'none';
+            document.getElementById('hills').style.display = 'none';
         });
     }
 

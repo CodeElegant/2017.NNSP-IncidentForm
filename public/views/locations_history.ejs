@@ -7,18 +7,28 @@
 			<input name='location' id='locationHill' value='Hill' type='radio' required><label for="locationHill">Hill</label>
 			<input name='location' id='locationPremise' value='Premise' type='radio' required><label for="locationPremise">Premise</label>
 		</div>
-		<div class="small-2 columns">
-			<br><span id='hillLift'></span>
-			<input id='hillName' name='hillName' type='hidden'>
-			<input id='liftName' name='liftName' type='hidden'>
-			<input id='difficulty' name='difficulty' type='hidden'>
+		<div class="small-2 columns" id='lifts'>
+            <span class="label">Choose</span><br>
+            <select size="1" class="select" name="whichLift" id="whichLift">
+                <option value="" disabled selected>CHOOSE LIFT</option>
+            </select>
 		</div>
-		<div class="small-7 columns end">
+		<div class="small-2 columns" id='hills'>
+            <span class="label">Choose</span><br>
+            <select size="1" class="select" name="whichHill" id="whichHill">
+                <option value="" disabled selected>CHOOSE HILL</option>
+            </select>
+		</div>
+		<div class="small-5 columns end">
 			<span class="label">Specific Location</span><br>
 			<textarea name='specificLocation' id="specificLocation" placeholder='Describe specific location' required></textarea>
 		</div>
+        <input id='hillName' name='hillName' type='hidden'>
+        <input id='liftName' name='liftName' type='hidden'>
+        <input id='difficulty' name='difficulty' type='hidden'>
 	</fieldset>
 </div>
+
 <div class="row">
 	<fieldset id='history'>
 		<legend>Skiing History</legend>

@@ -57,6 +57,12 @@ class app {
                         response.end(liftsData);
                     });
                 } else if (request.headers['x-requested-with'] === 'XHR3') {
+                    DATA_HANDLER.setBaseData('patrollers', (patrollersData) => {
+                        patrollersData = JSON.stringify(patrollersData);
+                        response.writeHead(200, {'content-type': 'application/json'});
+                        response.end(patrollersData);
+                    });
+                } else if (request.headers['x-requested-with'] === 'XHR4') {
                     request.on('data', (data) => {
                         DATA_HANDLER.handleUserData(data.toString('utf8'), (user) => {
                             if (user !== 'false') {
@@ -68,7 +74,7 @@ class app {
                             }
                         });
                     });
-                } else if (request.headers['x-requested-with'] === 'XHR4') {
+                } else if (request.headers['x-requested-with'] === 'XHR5') {
                     const FORMIDABLE = require('formidable');
                     let formData = {};
                     new FORMIDABLE.IncomingForm().parse(request).on('field', (field, name) => {
