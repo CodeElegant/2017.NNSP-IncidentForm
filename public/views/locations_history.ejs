@@ -28,9 +28,9 @@
 	</fieldset>
 </div>
 
-<div class="row">
-	<fieldset id='history'>
-		<legend>Skiing History</legend>
+<fieldset id='history'>
+	<legend>Skiing History</legend>
+	<div class="row">
 		<div class="small-4 columns">
 			<span class="label">Ability</span><br>
 			<input name='ability' id='abilityBeginner' value='Beginner' type='radio' required><label for="abilityBeginner">Beginner</label>
@@ -43,13 +43,20 @@
 			<input name='inLesson' id="lessonYes" value='Yes' type='radio' required><label for="lessonYes">Yes</label>
 			<input name='inLesson' id="lessonNo" value='No' type='radio' required><label for="lessonNo">No</label>
 		</div>
-		<div class="small-2 columns end" id='instYes'></div>
+		<div class="small-6 columns" id='instYes'>
+			<span class="label">Instructor</span><br>
+			<input name="instructor" id="instructor" type="text" placeholder="Instructor name">
+		</div>
+	</div>
+	<div class="row">
 		<div class="small-3 columns">
 			<span class="label">Number of times on?</span><br>
 			<input name='numTimes' id="timesHill" value='Hill' type='radio'><label for="timesHill">Hill</label>
 			<input name='numTimes' id="timesLift" value='Lift' type='radio'><label for="timesLift">Lift</label>
 			<input name='numTimes' id="timesOther" value='Other' type='radio'><label for="timesOther">Other</label>
-			<span id='otherYes'></span>
+		</div>
+		<div class="small-3 columns" id="numOther">
+			<input name="numOther" id="numOther" placeholder="Other Location?" type="text">
 		</div>
 		<div class="small-1 columns">
 			<span class="label">Today</span><br>
@@ -66,5 +73,5 @@
 			<input name='equipmentRemoval' id="removePatrol" value='Patrol' type='radio' required><label for="removePatrol">Patrol</label>
 			<input name='equipmentRemoval' id="removeOther" value='Other' type='radio' required><label for="removeOther">Other</label>
 		</div>
-	</fieldset>
-</div>
+	</div>
+</fieldset>

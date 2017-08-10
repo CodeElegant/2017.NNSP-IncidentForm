@@ -30,6 +30,7 @@ class main {
         document.getElementById('locations').style.display = 'none';
         document.getElementById('lifts').style.display = 'none';
         document.getElementById('hills').style.display = 'none';
+        document.getElementById('instYes').style.visibility = 'hidden';
         document.getElementById('history').style.display = 'block';
         document.getElementById('equipment').style.display = 'none';
         document.getElementById('incidentDesc').style.display = 'none';
@@ -57,10 +58,10 @@ class main {
         document.getElementById('date').value = this.fullDate;
     }
 
-    setDifficulty(value) {
+/*    setDifficulty(value) {
         let difficultyList = ["Easier", "More Difficult", "Most Difficult", "Experts Only"];
         document.getElementById("difficulty").value = difficultyList[value - 1];
-    }
+    }*/
 
     get date() {
         return this._date;

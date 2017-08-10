@@ -12,6 +12,7 @@ export default class EventHandler {
         this.calculateAge(year, month, day);
         this.handlePatientZip();
         this.handleLocation();
+        this.handleLesson();
     }
 
     loadZipData() {
@@ -80,8 +81,6 @@ export default class EventHandler {
             document.getElementById('whichLift').addEventListener('change', () => {
                 document.getElementById('hillLift').value = document.getElementById('whichLift').options[document.getElementById('whichLift').selectedIndex].text;
                 document.getElementById('difficulty').value = null;
-                console.log(document.getElementById('hillLift').value);
-                console.log(document.getElementById('difficulty').value);
             });
         });
         locations[1].addEventListener('click', () => {
@@ -98,13 +97,23 @@ export default class EventHandler {
             document.getElementById('whichHill').addEventListener('change', () => {
                 document.getElementById('hillLift').value = document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].text;
                 document.getElementById('difficulty').value = document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].value;
-                console.log(document.getElementById('hillLift').value);
-                console.log(document.getElementById('difficulty').value);
             });
         });
         locations[2].addEventListener('click', () => {
             document.getElementById('lifts').style.display = 'none';
             document.getElementById('hills').style.display = 'none';
+        });
+    }
+
+    handleLesson() {
+        let lesson = document.forms[0].elements['inLesson'];
+        lesson[0].addEventListener('change', () => {
+            alert("Remember: You must fill out an instructor witness statement form.");
+            document.getElementById('instYes').style.visibility = 'visible';
+        });
+        lesson[1].addEventListener('change', () => {
+            document.getElementById('instructor').value = null;
+            document.getElementById('instYes').style.visibility = 'hidden';
         });
     }
 
