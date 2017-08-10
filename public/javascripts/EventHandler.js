@@ -4,7 +4,7 @@
 
 export default class EventHandler {
     constructor(year, day, month) {
-        this._zipData = null, this._hills = null, this._lifts = null, this._patrollers = null;
+        // this._zipData = null, this._hills = null, this._lifts = null, this._patrollers = null, this._difficulty = null;
         this.loadZipData();
         this.loadHills();
         this.loadLifts();
@@ -69,22 +69,38 @@ export default class EventHandler {
         locations[0].addEventListener('click', () => {
             document.getElementById('lifts').style.display = 'block';
             document.getElementById('hills').style.display = 'none';
+            document.getElementById('whichLift').options.length = 1;
+            document.getElementById('whichHill').options.length = 1;
             for (let element of this.lifts) {
                 let option = document.createElement('option');
                 option.text = element;
                 option.value = element;
                 document.getElementById('whichLift').appendChild(option);
             }
+            document.getElementById('whichLift').addEventListener('change', () => {
+                document.getElementById('hillLift').value = document.getElementById('whichLift').options[document.getElementById('whichLift').selectedIndex].text;
+                document.getElementById('difficulty').value = null;
+                console.log(document.getElementById('hillLift').value);
+                console.log(document.getElementById('difficulty').value);
+            });
         });
         locations[1].addEventListener('click', () => {
             document.getElementById('lifts').style.display = 'none';
             document.getElementById('hills').style.display = 'block';
+            document.getElementById('whichLift').options.length = 1;
+            document.getElementById('whichHill').options.length = 1;
             for (let element of this.hills) {
                 let option = document.createElement('option');
-                option.text = element;
-                option.value = element;
+                option.text = element[0];
+                option.value = element[1];
                 document.getElementById('whichHill').appendChild(option);
             }
+            document.getElementById('whichHill').addEventListener('change', () => {
+                document.getElementById('hillLift').value = document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].text;
+                document.getElementById('difficulty').value = document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].value;
+                console.log(document.getElementById('hillLift').value);
+                console.log(document.getElementById('difficulty').value);
+            });
         });
         locations[2].addEventListener('click', () => {
             document.getElementById('lifts').style.display = 'none';

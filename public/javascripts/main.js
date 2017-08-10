@@ -27,10 +27,10 @@ class main {
         document.getElementById('noPrint').style.display = 'none';
         document.getElementById('personalInfo').style.display = 'none';
         document.getElementById('patientHistory').style.display = 'none';
-        document.getElementById('locations').style.display = 'block';
+        document.getElementById('locations').style.display = 'none';
         document.getElementById('lifts').style.display = 'none';
         document.getElementById('hills').style.display = 'none';
-        document.getElementById('history').style.display = 'none';
+        document.getElementById('history').style.display = 'block';
         document.getElementById('equipment').style.display = 'none';
         document.getElementById('incidentDesc').style.display = 'none';
         document.getElementById('conditions').style.display = 'none';
