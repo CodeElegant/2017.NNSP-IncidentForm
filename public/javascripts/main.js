@@ -30,8 +30,6 @@ class main {
         document.getElementById('locations').style.display = 'none';
         document.getElementById('lifts').style.display = 'none';
         document.getElementById('hills').style.display = 'none';
-        document.getElementById('instYes').style.visibility = 'hidden';
-        document.getElementById('numOther').style.display = 'none';
         document.getElementById('history').style.display = 'none';
         document.getElementById('equipment').style.display = 'block';
         document.getElementById('incidentDesc').style.display = 'none';

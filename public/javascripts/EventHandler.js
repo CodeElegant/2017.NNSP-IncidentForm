@@ -4,7 +4,6 @@
 
 export default class EventHandler {
     constructor(year, day, month) {
-        // this._zipData = null, this._hills = null, this._lifts = null, this._patrollers = null, this._difficulty = null;
         this.loadZipData();
         this.loadHills();
         this.loadLifts();
@@ -13,7 +12,9 @@ export default class EventHandler {
         this.handlePatientZip();
         this.handleLocation();
         this.handleLesson();
-        this.handleNunOther();
+        this.handleNumOther();
+        this.setEquipOther();
+        this.setDins();
     }
 
     loadZipData() {
@@ -107,6 +108,7 @@ export default class EventHandler {
     }
 
     handleLesson() {
+        document.getElementById('instYes').style.visibility = 'hidden';
         let lesson = document.forms[0].elements['inLesson'];
         lesson[0].addEventListener('change', () => {
             alert("Remember: You must fill out an instructor witness statement form.");
@@ -118,7 +120,8 @@ export default class EventHandler {
         });
     }
 
-    handleNunOther() {
+    handleNumOther() {
+        document.getElementById('numOther').style.display = 'none';
         const MAX = 1;
         let other = document.forms[0].elements['numTimes'];
         other[2].addEventListener('change', () => {
@@ -129,6 +132,51 @@ export default class EventHandler {
                 document.getElementById('numOther').style.display = 'none';
             });
         }
+    }
+
+    setEquipOther() {
+        document.getElementById("otherEquipYes").style.visibility = "hidden";
+        const MAX = 2;
+        let other = document.forms[0].elements["equipmentType"];
+        other[3].onclick = function () {
+            document.getElementById("otherEquipYes").style.visibility = "visible";
+        };
+        for (let i = 0; i <= MAX; i++) {
+            other[i].addEventListener('change', () => {
+                document.getElementById("otherEquipYes").style.visibility = "hidden";
+            });
+        }
+    }
+
+    setDins() {
+        document.getElementById("leftToeDin").style.display = "none";
+        document.getElementById("leftHeelDin").style.display = "none";
+        document.getElementById("rightToeDin").style.display = "none";
+        document.getElementById("rightHeelDin").style.display = "none";
+        document.getElementById("equipAlpine").addEventListener("click", function () {
+            document.getElementById("leftToeDin").style.display = "block";
+            document.getElementById("leftHeelDin").style.display = "block";
+            document.getElementById("rightToeDin").style.display = "block";
+            document.getElementById("rightHeelDin").style.display = "block";
+        });
+        document.getElementById("equipNordic").addEventListener("click", function () {
+            document.getElementById("leftToeDin").style.display = "none";
+            document.getElementById("leftHeelDin").style.display = "none";
+            document.getElementById("rightToeDin").style.display = "none";
+            document.getElementById("rightHeelDin").style.display = "none";
+        });
+        document.getElementById("equipSnowboard").addEventListener("click", function () {
+            document.getElementById("leftToeDin").style.display = "none";
+            document.getElementById("leftHeelDin").style.display = "none";
+            document.getElementById("rightToeDin").style.display = "none";
+            document.getElementById("rightHeelDin").style.display = "none";
+        });
+        document.getElementById("equipOther").addEventListener("click", function () {
+            document.getElementById("leftToeDin").style.display = "none";
+            document.getElementById("leftHeelDin").style.display = "none";
+            document.getElementById("rightToeDin").style.display = "none";
+            document.getElementById("rightHeelDin").style.display = "none";
+        });
     }
 
     performAjax(requestNum, sendToNode, callback) {
@@ -142,36 +190,5 @@ export default class EventHandler {
                 return callback(XHR.responseText);
             }
         };
-    }
-
-    get zipData() {
-        return this._zipData;
-    }
-
-    set zipData(value) {
-        this._zipData = value;
-    }
-
-    get lifts() {
-        return this._lifts;
-    }
-
-    set lifts(value) {
-        this._lifts = value;
-    }
-    get hills() {
-        return this._hills;
-    }
-
-    set hills(value) {
-        this._hills = value;
-    }
-
-    get patrollers() {
-        return this._patrollers;
-    }
-
-    set patrollers(value) {
-        this._patrollers = value;
     }
 }

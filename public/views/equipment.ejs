@@ -9,6 +9,7 @@
 			<input type='radio' name='equipmentType' id="equipOther" value='Other' required><label for="equipOther">Other</label>
 		</div>
 		<div class="small-8 columns" id='otherEquipYes'>
+			<span class="label">Other equipment</span>
 			<br><input type="text" id="otherEquip" name="otherEquip" placeholder="Other Equipment">
 		</div>
 		<div class="small-3 columns" id="leftToeDin">
@@ -26,20 +27,32 @@
 			<br><input name='rightDinHeel' id="rightDinHeel" type='number' min='0' max='20' step='.5' placeholder='Heel'>
 		</div>
 		<div class="small-12 columns">
-			<input type='hidden' id='shopCity' name='shopCity'>
-			<input type='hidden' id='shopState' name='shopState'>
-			<input type='hidden' id='nubsName' name='nubsName'>
-			<input type='hidden' id='nubsStreet' name='nubsStreet'>
-			<input type='hidden' id='nubsZip' name='nubsZip'>
 			<span class="label">Owner</span><br>
 			<input type='radio' name='owner' id="ownerOwn" value='Owned' required><label for="ownerOwn">Own</label>
-			<input type='radio' name='owner' id="ownerRent" value='AreaRental' required><label for="ownerRent">Rental</label>
-			<input type='radio' name='owner' id="ownerOther" value='OtherRental' required><label for="ownerOther">Other</label>
+			<input type='radio' name='owner' id="ownerRent" value='AreaRental' required><label for="ownerRent">Area Rental</label>
+			<input type='radio' name='owner' id="ownerOther" value='OtherRental' required><label for="ownerOther">Other Rental</label>
 			<input type='radio' name='owner' id="ownerBorrowed" value='Borrowed' required><label for="ownerBorrowed">Borrowed</label>
 			<input type='radio' name='owner' id="ownerDemo" value='Demo' required><label for="ownerDemo">Demo</label>
 		</div>
-
-		<div class="small-12 columns" id="rentalEquip"></div>
+        <div id="rentalEquip">
+            <div class="small-6 columns">
+                <input id="shopName" name="shopName" type="text" placeholder="If rented, shop name">
+            </div>
+            <div class="small-6 columns">
+                <input id="shopStreet" name="shopStreet" type="text" placeholder="Street number">
+            </div>
+            <div class="small-4 columns">
+                <input id="shopZip" name="shopZip" type="text" placeholder="Zip code" pattern="[0-9]{5}">
+                <input id="shopCity" name="shopCity" type="hidden">
+                <input id="shopState" name="shopState" type="hidden">
+            </div>
+            <div class="small-4 columns">
+                <input id="skiNum" name="skiNum" type="number" placeholder="Ski/Board Number">
+            </div>
+            <div class="small-4 columns">
+                <input id="bootNum" name="bootNum" type="number" placeholder="Boot Number">
+            </div>
+        </div>
 
 		<div class="small-3 columns">
 			<span class="label">Binding Make</span><br>
