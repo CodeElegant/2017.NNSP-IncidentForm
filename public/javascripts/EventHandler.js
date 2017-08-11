@@ -13,6 +13,7 @@ export default class EventHandler {
         this.handlePatientZip();
         this.handleLocation();
         this.handleLesson();
+        this.handleNunOther();
     }
 
     loadZipData() {
@@ -115,6 +116,19 @@ export default class EventHandler {
             document.getElementById('instructor').value = null;
             document.getElementById('instYes').style.visibility = 'hidden';
         });
+    }
+
+    handleNunOther() {
+        const MAX = 1;
+        let other = document.forms[0].elements['numTimes'];
+        other[2].addEventListener('change', () => {
+            document.getElementById('numOther').style.display = 'block';
+        });
+        for (let i = 0; i <= MAX; i++) {
+            other[i].addEventListener('change', () => {
+                document.getElementById('numOther').style.display = 'none';
+            });
+        }
     }
 
     performAjax(requestNum, sendToNode, callback) {

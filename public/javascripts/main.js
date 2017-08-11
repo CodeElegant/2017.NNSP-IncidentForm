@@ -31,8 +31,9 @@ class main {
         document.getElementById('lifts').style.display = 'none';
         document.getElementById('hills').style.display = 'none';
         document.getElementById('instYes').style.visibility = 'hidden';
-        document.getElementById('history').style.display = 'block';
-        document.getElementById('equipment').style.display = 'none';
+        document.getElementById('numOther').style.display = 'none';
+        document.getElementById('history').style.display = 'none';
+        document.getElementById('equipment').style.display = 'block';
         document.getElementById('incidentDesc').style.display = 'none';
         document.getElementById('conditions').style.display = 'none';
         document.getElementById('injury').style.display = 'none';
