@@ -29,10 +29,10 @@
 		<div class="small-12 columns">
 			<span class="label">Owner</span><br>
 			<input type='radio' name='owner' id="ownerOwn" value='Owned' required><label for="ownerOwn">Own</label>
-			<input type='radio' name='owner' id="ownerRent" value='AreaRental' required><label for="ownerRent">Area Rental</label>
-			<input type='radio' name='owner' id="ownerOther" value='OtherRental' required><label for="ownerOther">Other Rental</label>
+			<input type='radio' name='owner' id="ownerRent" value='AreaRental' required><label for="ownerArea">Area Rental</label>
 			<input type='radio' name='owner' id="ownerBorrowed" value='Borrowed' required><label for="ownerBorrowed">Borrowed</label>
 			<input type='radio' name='owner' id="ownerDemo" value='Demo' required><label for="ownerDemo">Demo</label>
+			<input type='radio' name='owner' id="ownerOther" value='OtherRental' required><label for="ownerOther">Other Rental</label>
 		</div>
         <div id="rentalEquip">
             <div class="small-6 columns">
@@ -53,7 +53,6 @@
                 <input id="bootNum" name="bootNum" type="number" placeholder="Boot Number">
             </div>
         </div>
-
 		<div class="small-3 columns">
 			<span class="label">Binding Make</span><br>
 			<input name='bindingMake' id="bindingMake" type='text' placeholder='Binding Make'>
@@ -64,14 +63,17 @@
 		</div>
 		<div class="small-2 columns">
 			<span class="label">Helmet Worn?</span><br>
-			<input type='radio' name='helmet' id='helmetY' value='Yes' required><label for="helmetY">Yes</label>
 			<input type='radio' name='helmet' id='helmetN' value='No' required><label for="helmetN">No</label>
+			<input type='radio' name='helmet' id='helmetY' value='Yes' required><label for="helmetY">Yes</label>
 		</div>
-		<div class="small-2 columns">
-			<span id='helmetYes'></span>
+		<div class="small-2 columns" id="helmetYes">
+			<span class="label">Helmet area rental?</span><br>
+			<input type="radio" class="radio" name="helmetRental" id="helmetRentalNo" value="No"><label for="rentalNo">No</label>
+			<input type="radio" class="radio" name="helmetRental" id="helmetRentalYes" value="Yes"><label for="rentalYes">Yes</label>
 		</div>
-		<div class="small-2 columns end">
-			<span id='helmetRentalYep'></span>
+		<div class="small-2 columns end" id="helmetRentalYep">
+			<span class="label">Helmet rental number:</span><br>
+			<input name="helmetRentalNum" id="helmetRentalNum" type="number" placeholder="Helmet #">
 		</div>
 		<div class="small-3 columns">
 			<span class="label">Known videos or photos of incident?</span><br>

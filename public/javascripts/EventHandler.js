@@ -15,6 +15,8 @@ export default class EventHandler {
         this.handleNumOther();
         this.setEquipOther();
         this.setDins();
+        this.handleRental();
+        this.handleHelmet();
     }
 
     loadZipData() {
@@ -122,12 +124,12 @@ export default class EventHandler {
 
     handleNumOther() {
         document.getElementById('numOther').style.display = 'none';
-        const MAX = 1;
+        const OTHER = 2;
         let other = document.forms[0].elements['numTimes'];
-        other[2].addEventListener('change', () => {
+        other[OTHER].addEventListener('change', () => {
             document.getElementById('numOther').style.display = 'block';
         });
-        for (let i = 0; i <= MAX; i++) {
+        for (let i = 0; i < OTHER; i++) {
             other[i].addEventListener('change', () => {
                 document.getElementById('numOther').style.display = 'none';
             });
@@ -136,12 +138,15 @@ export default class EventHandler {
 
     setEquipOther() {
         document.getElementById("otherEquipYes").style.visibility = "hidden";
-        const MAX = 2;
+        const OTHER = 3;
         let other = document.forms[0].elements["equipmentType"];
-        other[3].onclick = function () {
+        other[OTHER].addEventListener('click', () => {
             document.getElementById("otherEquipYes").style.visibility = "visible";
-        };
-        for (let i = 0; i <= MAX; i++) {
+        });
+        other[OTHER].addEventListener('click', () => {
+            document.getElementById("otherEquipYes").style.visibility = "visible";
+        });
+        for (let i = 0; i < OTHER; i++) {
             other[i].addEventListener('change', () => {
                 document.getElementById("otherEquipYes").style.visibility = "hidden";
             });
@@ -153,29 +158,64 @@ export default class EventHandler {
         document.getElementById("leftHeelDin").style.display = "none";
         document.getElementById("rightToeDin").style.display = "none";
         document.getElementById("rightHeelDin").style.display = "none";
-        document.getElementById("equipAlpine").addEventListener("click", function () {
+        document.getElementById("equipAlpine").addEventListener("click", () => {
             document.getElementById("leftToeDin").style.display = "block";
             document.getElementById("leftHeelDin").style.display = "block";
             document.getElementById("rightToeDin").style.display = "block";
             document.getElementById("rightHeelDin").style.display = "block";
         });
-        document.getElementById("equipNordic").addEventListener("click", function () {
+        document.getElementById("equipNordic").addEventListener("click", () => {
             document.getElementById("leftToeDin").style.display = "none";
             document.getElementById("leftHeelDin").style.display = "none";
             document.getElementById("rightToeDin").style.display = "none";
             document.getElementById("rightHeelDin").style.display = "none";
         });
-        document.getElementById("equipSnowboard").addEventListener("click", function () {
+        document.getElementById("equipSnowboard").addEventListener("click", () => {
             document.getElementById("leftToeDin").style.display = "none";
             document.getElementById("leftHeelDin").style.display = "none";
             document.getElementById("rightToeDin").style.display = "none";
             document.getElementById("rightHeelDin").style.display = "none";
         });
-        document.getElementById("equipOther").addEventListener("click", function () {
+        document.getElementById("equipOther").addEventListener("click", () => {
             document.getElementById("leftToeDin").style.display = "none";
             document.getElementById("leftHeelDin").style.display = "none";
             document.getElementById("rightToeDin").style.display = "none";
             document.getElementById("rightHeelDin").style.display = "none";
+        });
+    }
+
+    handleRental() {
+        const OTHER_RENTAL = 4;
+        document.getElementById("rentalEquip").style.display = "none";
+        let owner = document.forms[0].elements["owner"];
+        owner[OTHER_RENTAL].addEventListener('click', () => {
+            document.getElementById("rentalEquip").style.display = "block";
+        });
+        for (let i = 0; i < OTHER_RENTAL; i++) {
+            owner[i].addEventListener('click', () => {
+                document.getElementById("rentalEquip").style.display = "none";
+            });
+        }
+    }
+
+    handleHelmet() {
+        const TRUE = 1;
+        let helmet = document.forms[0].elements["helmet"];
+        let rental = document.forms[0].elements["helmetRental"];
+        document.getElementById("helmetYes").style.display = "none";
+        document.getElementById("helmetRentalYep").style.display = "none";
+        helmet[0].addEventListener('click', () => {
+            document.getElementById("helmetYes").style.display = "none";
+            document.getElementById("helmetRentalYep").style.display = "none";
+        });
+        helmet[TRUE].addEventListener('click', () => {
+            document.getElementById("helmetYes").style.display = "block";
+            rental[0].addEventListener('click', () => {
+                document.getElementById("helmetRentalYep").style.display = "none";
+            });
+            rental[TRUE].addEventListener('click', () => {
+                document.getElementById("helmetRentalYep").style.display = "block";
+            });
         });
     }
 
