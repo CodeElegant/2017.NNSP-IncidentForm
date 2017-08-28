@@ -1,6 +1,6 @@
 <div class="row">
 	<fieldset id='equipment'>
-		<legend>Equipment</legend>
+	<legend>Equipment</legend>
 		<div class="small-4 columns">
 			<span class="label">Type</span><br>
 			<input type='radio' name='equipmentType' id="equipAlpine" value='Alpine' required><label for="equipAlpine">Alpine</label>
@@ -77,11 +77,12 @@
 		</div>
 		<div class="small-3 columns">
 			<span class="label">Known videos or photos of incident?</span><br>
-			<input type='radio' name='video' id='videoY' value='Yes' required><label for="videoY">Yes</label>
 			<input type='radio' name='video' id='videoN' value='No' required><label for="videoN">No</label>
+			<input type='radio' name='video' id='videoY' value='Yes' required><label for="videoY">Yes</label>
 		</div>
-		<div class="small-6 columns end">
-			<span  id='videoYes'></span>
+		<div class="small-3 columns end" id="videoYes">
+			<span class="label">Name of person with photos:</span><br>
+			<input name="videoName" id="videoName" type="text" placeholder="Name">
 		</div>
 	</fieldset>
 </div>

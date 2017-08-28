@@ -17,6 +17,7 @@ export default class EventHandler {
         this.setDins();
         this.handleRental();
         this.handleHelmet();
+        this.handleVideo();
     }
 
     loadZipData() {
@@ -217,6 +218,17 @@ export default class EventHandler {
                 document.getElementById("helmetRentalYep").style.display = "block";
             });
         });
+    }
+
+    handleVideo() {
+         let video = document.forms[0].elements["video"];
+         document.getElementById("videoYes").style.display = "none";
+         video[0].addEventListener('click', () => {
+              document.getElementById("videoYes").style.display = "none";
+         });
+         video[1].addEventListener('click', () => {
+              document.getElementById("videoYes").style.display = "block";
+         });
     }
 
     performAjax(requestNum, sendToNode, callback) {
