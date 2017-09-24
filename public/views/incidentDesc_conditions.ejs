@@ -6,7 +6,10 @@
 		</div>
 		<div class="small-12 columns">
 			<span class="label">Statement taken by:</span><br>
-			<span id='statementTaker'></span>
+			<select size="1" class="select" name="statementTaker" id="statementTaker">
+				<option value="" disabled selected>CHOOSE PATROLLER</option>
+			</select>
+			<input id='statementTakerValue' name='statementTakerValue' type='hidden'>
 		</div>
 	</fieldset>
 </div>
@@ -15,14 +18,14 @@
 		<legend>Site Conditions</legend>
 		<div class="small-12 columns">
 			<span class="label">Surface at scene?</span><br>
-			<input type='checkbox' name='sceneSurface' id="surfacePowder" value='Powder'><label for="surfacePowder">Powder</label>
-			<input type='checkbox' name='sceneSurface' id="surfacePacked" value='Packedpowder'><label for="surfacePacked">Packed Powder</label>
-			<input type='checkbox' name='sceneSurface' id="surfaceHard"  value='Hardpacked'><label for="surfaceHard">Hard Packed</label>
-			<input type='checkbox' name='sceneSurface' id="surfaceVariable" value='Variable'><label for="surfaceVariable">Variable</label>
-			<input type='checkbox' name='sceneSurface' id="surfaceCorn" value='Corn'><label for="surfaceCorn">Corn</label>
-			<input type='checkbox' name='sceneSurface' id="surfaceGranular" value='Granular'><label for="surfaceGranular">Granular</label>
-			<input type='checkbox' name='sceneSurface' id="surfaceWet"  value='Wet'><label for="surfaceWet">Wet</label>
-			<input type='checkbox' name='sceneSurface' id="surfaceOther" value='Other'><label for="surfaceOther">Other</label>
+			<input type='checkbox' name='sceneSurface' id="surfacePowder" value='powder'><label for="surfacePowder">Powder</label>
+			<input type='checkbox' name='sceneSurface' id="surfacePacked" value='packedpowder'><label for="surfacePacked">Packed Powder</label>
+			<input type='checkbox' name='sceneSurface' id="surfaceHard"  value='pardpacked'><label for="surfaceHard">Hard Packed</label>
+			<input type='checkbox' name='sceneSurface' id="surfaceVariable" value='variable'><label for="surfaceVariable">Variable</label>
+			<input type='checkbox' name='sceneSurface' id="surfaceCorn" value='corn'><label for="surfaceCorn">Corn</label>
+			<input type='checkbox' name='sceneSurface' id="surfaceGranular" value='granular'><label for="surfaceGranular">Granular</label>
+			<input type='checkbox' name='sceneSurface' id="surfaceWet"  value='wet'><label for="surfaceWet">Wet</label>
+			<input type='checkbox' name='sceneSurface' id="surfaceOther" value='other'><label for="surfaceOther">Other</label>
 			<input name='sceneSurfaceOther' id='sceneSurfaceOther' type='text' placeholder='Other'>
 		</div>
 		<div class="small-7 columns">

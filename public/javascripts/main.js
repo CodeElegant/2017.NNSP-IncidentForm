@@ -31,15 +31,15 @@ class main {
         document.getElementById('lifts').style.display = 'none';
         document.getElementById('hills').style.display = 'none';
         document.getElementById('history').style.display = 'none';
-        document.getElementById('equipment').style.display = 'block';
+        document.getElementById('equipment').style.display = 'none';
         document.getElementById('incidentDesc').style.display = 'none';
         document.getElementById('conditions').style.display = 'none';
         document.getElementById('injury').style.display = 'none';
         document.getElementById('injuryZone').style.display = 'none';
         document.getElementById('firstAid').style.display = 'none';
-        document.getElementById('patrollers').style.display = 'none';
+        document.getElementById('patrollers').style.display = 'block';
         document.getElementById('transportDestination').style.display = 'none';
-        document.getElementById('witness').style.display = 'none';
+        document.getElementById('witness').style.display = 'block';
         document.getElementById('completer').style.display = 'none';
         main.setRequired();
     }
@@ -57,10 +57,11 @@ class main {
         document.getElementById('date').value = this.fullDate;
     }
 
-/*    setDifficulty(value) {
+/*
+    setDifficulty(value) {
         let difficultyList = ["Easier", "More Difficult", "Most Difficult", "Experts Only"];
         document.getElementById("difficulty").value = difficultyList[value - 1];
-    }*/
+    }
 
     get date() {
         return this._date;
@@ -109,6 +110,8 @@ class main {
     set fullDate(value) {
         this._fullDate = value;
     }
+*/
+
 }
 
 window.addEventListener('load', () => {

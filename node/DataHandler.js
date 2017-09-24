@@ -18,23 +18,25 @@ class DataHandler {
     }
 
     static setBaseData(data, callback) {
-        let filePath;
+        let filePath, columns;
         if (data === 'zip') {
             filePath = 'data/ZipCodeDB.csv';
         } else if (data === 'hills') {
             filePath = 'data/hills.csv';
+            columns = 2;
         } else if (data === 'lifts') {
             filePath = 'data/lifts.csv';
+            columns = 1;
         } else if (data === 'patrollers') {
             filePath = 'data/patrollers.csv';
+            columns = 2;
         }
 
         FS.readFile(filePath, 'utf8', (err, file) => {
-            const COLUMNS = 3;
             let tempArray, finalData = [];
             tempArray = file.split(/\r?\n/); //remove newlines
             for (let i = 0; i < tempArray.length; i++) {
-                finalData[i] = tempArray[i].split(/,/).slice(0, COLUMNS);
+                finalData[i] = tempArray[i].split(/,/).slice(0, columns);
             }
             // finalData = JSON.stringify(finalData);
             callback(finalData);

@@ -7,7 +7,7 @@ export default class EventHandler {
         this.loadZipData();
         this.loadHills();
         this.loadLifts();
-        this.loadPatrollers();
+        // this.loadPatrollers();
         this.calculateAge(year, month, day);
         this.handlePatientZip();
         this.handleLocation();
@@ -18,6 +18,12 @@ export default class EventHandler {
         this.handleRental();
         this.handleHelmet();
         this.handleVideo();
+        // this.handleStatementTaker();
+        // this.handlePatrollers('statementTaker', 0);
+        this.handlePatrollers('scenePatrollers', 0);
+        this.handlePatrollers('transportPatrollers', 0);
+        this.handlePatrollers('aidRoomPatrollers', 0);
+        // this.handleWitnesses(0);
     }
 
     loadZipData() {
@@ -38,9 +44,9 @@ export default class EventHandler {
         });
     }
 
-    loadPatrollers() {
-        this.performAjax('XHR3', 0, (response) => {
-            this.patrollers = JSON.parse(response);
+     loadPatrollers() {
+        this.performAjax('XHR3', 0, async (response) => {
+            this.patrollers = await JSON.parse(response);
         });
     }
 
@@ -203,19 +209,19 @@ export default class EventHandler {
         const TRUE = 1;
         let helmet = document.forms[0].elements["helmet"];
         let rental = document.forms[0].elements["helmetRental"];
-        document.getElementById("helmetYes").style.display = "none";
-        document.getElementById("helmetRentalYep").style.display = "none";
+        document.getElementById("helmetYes").style.visibility = "hidden";
+        document.getElementById("helmetRentalYep").style.visibility = "hidden";
         helmet[0].addEventListener('click', () => {
-            document.getElementById("helmetYes").style.display = "none";
-            document.getElementById("helmetRentalYep").style.display = "none";
+            document.getElementById("helmetYes").style.visibility = "hidden";
+            document.getElementById("helmetRentalYep").style.visibility = "hidden";
         });
         helmet[TRUE].addEventListener('click', () => {
-            document.getElementById("helmetYes").style.display = "block";
+            document.getElementById("helmetYes").style.visibility = "visible";
             rental[0].addEventListener('click', () => {
-                document.getElementById("helmetRentalYep").style.display = "none";
+                document.getElementById("helmetRentalYep").style.visibility = "hidden";
             });
             rental[TRUE].addEventListener('click', () => {
-                document.getElementById("helmetRentalYep").style.display = "block";
+                document.getElementById("helmetRentalYep").style.visibility = "visible";
             });
         });
     }
@@ -230,6 +236,73 @@ export default class EventHandler {
               document.getElementById("videoYes").style.display = "block";
          });
     }
+
+    /*
+    handleStatementTaker() {
+        document.getElementById('statementTaker').addEventListener('mouseenter', () => {
+            document.getElementById('statementTaker').options.length = 1;
+            for (let element of this.patrollers) {
+                let option = document.createElement('option');
+                element = element[1] + ' ' + element[0];
+                option.text = element;
+                option.value = element;
+                document.getElementById('statementTaker').appendChild(option);
+            }
+            document.getElementById('statementTaker').addEventListener('change', () => {
+                document.getElementById('statementTakerValue').value = document.getElementById('statementTaker').options[document.getElementById('statementTaker').selectedIndex].text;
+            });
+        });
+    }
+    */
+
+    handlePatrollers(patrollerType, count) {
+        let select = document.createElement('select');
+        select.name = `${patrollerType}.${count}`;
+        select.id = `${patrollerType}.${count}`;
+        select.size = 1;
+        let option = document.createElement('option');
+        option.text = 'CHOOSE PATROLLER';
+        option.value = '';
+        option.selected = true;
+        document.getElementById(`${patrollerType}`).appendChild(select);
+        document.getElementById(`${patrollerType}.${count}`).appendChild(option);
+        this.performAjax('XHR3', 0, (response) => {
+            this.patrollers = JSON.parse(response);
+            document.getElementById(`${patrollerType}.${count}`).options.length = 1;
+            for (let element of this.patrollers) {
+                let option = document.createElement('option');
+                element = element[1] + ' ' + element[0];
+                option.text = element;
+                option.value = element;
+                document.getElementById(`${patrollerType}.${count}`).appendChild(option);
+            }
+        });
+        document.getElementById(`${patrollerType}.${count}`).addEventListener('change', () => {
+            count++;
+            return this.handlePatrollers(patrollerType, count);
+        });
+    }
+
+    handleWitnesses(count) {
+        let lastName = document.createElement('input');
+        lastName.id = `witness.${count}`;
+        lastName.name = `witness.${count}`;
+        lastName.attribute('type','text');
+        lastName.attribute('placeholder','Last Name');
+
+    }
+
+/*
+    get patrollers() {
+        console.log(`gettin poopy`);
+        return this._patrollers;
+    }
+
+    set patrollers(value) {
+        console.log(`settin poopy`);
+        this._patrollers = value;
+    }
+*/
 
     performAjax(requestNum, sendToNode, callback) {
         let bustCache = '?' + new Date().getTime();
