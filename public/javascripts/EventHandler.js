@@ -7,7 +7,6 @@ export default class EventHandler {
         this.loadZipData();
         this.loadHills();
         this.loadLifts();
-        // this.loadPatrollers();
         this.calculateAge(year, month, day);
         this.handlePatientZip();
         this.handleLocation();
@@ -18,8 +17,7 @@ export default class EventHandler {
         this.handleRental();
         this.handleHelmet();
         this.handleVideo();
-        // this.handleStatementTaker();
-        // this.handlePatrollers('statementTaker', 0);
+        this.handlePatrollers('statementTaker', 0);
         this.handlePatrollers('scenePatrollers', 0);
         this.handlePatrollers('transportPatrollers', 0);
         this.handlePatrollers('aidRoomPatrollers', 0);
@@ -237,24 +235,6 @@ export default class EventHandler {
          });
     }
 
-    /*
-    handleStatementTaker() {
-        document.getElementById('statementTaker').addEventListener('mouseenter', () => {
-            document.getElementById('statementTaker').options.length = 1;
-            for (let element of this.patrollers) {
-                let option = document.createElement('option');
-                element = element[1] + ' ' + element[0];
-                option.text = element;
-                option.value = element;
-                document.getElementById('statementTaker').appendChild(option);
-            }
-            document.getElementById('statementTaker').addEventListener('change', () => {
-                document.getElementById('statementTakerValue').value = document.getElementById('statementTaker').options[document.getElementById('statementTaker').selectedIndex].text;
-            });
-        });
-    }
-    */
-
     handlePatrollers(patrollerType, count) {
         let select = document.createElement('select');
         select.name = `${patrollerType}.${count}`;
@@ -291,18 +271,6 @@ export default class EventHandler {
         lastName.attribute('placeholder','Last Name');
 
     }
-
-/*
-    get patrollers() {
-        console.log(`gettin poopy`);
-        return this._patrollers;
-    }
-
-    set patrollers(value) {
-        console.log(`settin poopy`);
-        this._patrollers = value;
-    }
-*/
 
     performAjax(requestNum, sendToNode, callback) {
         let bustCache = '?' + new Date().getTime();
