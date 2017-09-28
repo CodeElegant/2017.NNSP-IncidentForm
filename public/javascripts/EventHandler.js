@@ -258,7 +258,7 @@ export default class EventHandler {
                 document.getElementById(`${patrollerType}.${count}`).appendChild(option);
             }
         });
-        if (patrollerType !== `reportCompleter`) {
+        if (patrollerType !== `reportCompleter` && patrollerType !== `statementTaker`) {
             let removeMe; //used in line below to create a named arrow func. that allows removeEventListener to work
             document.getElementById(`${patrollerType}.${count}`).addEventListener('change', removeMe = () => {
                 document.getElementById(`${patrollerType}.${count}`).removeEventListener('change', removeMe);
