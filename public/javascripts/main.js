@@ -25,6 +25,7 @@ class main {
 
     prepApp() {
         document.getElementById('noPrint').style.display = 'none';
+        /*
         document.getElementById('personalInfo').style.display = 'none';
         document.getElementById('patientHistory').style.display = 'none';
         document.getElementById('locations').style.display = 'none';
@@ -40,7 +41,8 @@ class main {
         document.getElementById('patrollers').style.display = 'block';
         document.getElementById('transportDestination').style.display = 'none';
         document.getElementById('witness').style.display = 'block';
-        document.getElementById('completer').style.display = 'none';
+        document.getElementById('completer').style.display = 'block';
+        */
         main.setRequired();
     }
 

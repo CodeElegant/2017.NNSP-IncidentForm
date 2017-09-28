@@ -3,7 +3,7 @@
 
 <div class="row" id="topMast">
 	<div class="small-6 columns">
-		<h2>Form - 2018</h2>
+		<h2>NNSP Incident Form - 2018</h2>
 	</div>
 	<div class="small-2 columns"><br>v.2018.01</div>
 	<div class="small-2 columns vertical-center"><span class="button">Start New</span></div>
@@ -15,19 +15,21 @@
 	<form id='mainForm'>
 		<div class="row">
 			<fieldset id='dateTime'>
-				<legend>Date &amp; Time</legend>
-			<div class="small-4 columns">
-				<span class="label">Day</span><br>
-				<input name='day' id='day' type='text' required>
-			</div>
-			<div class="small-4 columns">
-				<span class="label">Date</span><br>
-				<input name='date' id='date' type='text' required>
-			</div>
-			<div class="small-4 columns end">
-				<span class="label">Incident Time</span><br>
-				<input name='incidentTime' id="incidentTime" type='time' autofocus required>
-			</div>
+            <legend>Date &amp; Time</legend>
+                <div class="row">
+                    <div class="small-4 columns">
+                        <span class="label">Day</span><br>
+                        <input name='day' id='day' type='text' required>
+                    </div>
+                    <div class="small-4 columns">
+                        <span class="label">Date</span><br>
+                        <input name='date' id='date' type='text' required>
+                    </div>
+                    <div class="small-4 columns end">
+                        <span class="label">Incident Time</span><br>
+                        <input name='incidentTime' id="incidentTime" type='time' autofocus required>
+                    </div>
+                </div>
 			</fieldset>
 		</div>
 
@@ -50,11 +52,13 @@
 
 			<div class="row">
 				<fieldset id='buttons'>
-					<div class="small-3 columns">
-						<input type='submit' id='completed' value='Completed!' class="button large">
-					</div>
-					<div class="small-3 columns float-right">
-						<a href="#" class="button large alert float-right" id="reset">Reset Form</a>
+					<div class="row">
+						<div class="small-3 columns">
+							<input type='submit' id='completed' value='Completed!' class="button large">
+						</div>
+						<div class="small-3 columns float-right">
+							<a href="#" class="button large alert float-right" id="reset">Reset Form</a>
+						</div>
 					</div>
 				</fieldset>
 			</div>

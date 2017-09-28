@@ -22,6 +22,7 @@ export default class EventHandler {
         this.handlePatrollers('transportPatrollers', 0);
         this.handlePatrollers('aidRoomPatrollers', 0);
         this.handleWitnesses(1);
+        this.handlePatrollers('reportCompleter', 0);
     }
 
     loadZipData() {
@@ -257,10 +258,14 @@ export default class EventHandler {
                 document.getElementById(`${patrollerType}.${count}`).appendChild(option);
             }
         });
-        document.getElementById(`${patrollerType}.${count}`).addEventListener('change', () => {
-            count++;
-            return this.handlePatrollers(patrollerType, count);
-        });
+        if (patrollerType !== `reportCompleter`) {
+            let removeMe; //used in line below to create a named arrow func. that allows removeEventListener to work
+            document.getElementById(`${patrollerType}.${count}`).addEventListener('change', removeMe = () => {
+                document.getElementById(`${patrollerType}.${count}`).removeEventListener('change', removeMe);
+                count++;
+                return this.handlePatrollers(patrollerType, count);
+            });
+        }
     }
 
     handleWitnesses(count) {
