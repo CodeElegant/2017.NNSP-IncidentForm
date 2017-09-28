@@ -21,7 +21,7 @@ export default class EventHandler {
         this.handlePatrollers('scenePatrollers', 0);
         this.handlePatrollers('transportPatrollers', 0);
         this.handlePatrollers('aidRoomPatrollers', 0);
-        // this.handleWitnesses(0);
+        this.handleWitnesses(1);
     }
 
     loadZipData() {
@@ -264,12 +264,41 @@ export default class EventHandler {
     }
 
     handleWitnesses(count) {
-        let lastName = document.createElement('input');
-        lastName.id = `witness.${count}`;
-        lastName.name = `witness.${count}`;
-        lastName.attribute('type','text');
-        lastName.attribute('placeholder','Last Name');
-
+        let witness = `
+                <div class="row">
+                    <div class="small-2 columns">
+                        <label class="radius secondary label">Witness ${count}</label>
+                        <input name="w${count}LastName" id="w${count}LastName" type="text" placeholder="Last Name">
+                    </div>
+                    <div class="small-2 columns">
+                    <br>
+                        <input name="w${count}FirstName" id="w${count}FirstName" type="text" placeholder="First Name">
+                    </div>
+                    <div class="small-2 columns">
+                    <br>
+                        <input name="w${count}HomePhoneNum" id="w${count}HomePhoneNum" type="tel" placeholder="Phone number">
+                    </div>
+                    <div class="small-2 columns">
+                    <br>
+                        <input name="w${count}CellPhoneNum" id="w${count}CellPhoneNum" type="tel" placeholder="Cell number">
+                    </div>
+                    <div class="small-3 columns">
+                    <br>
+                        <input name="w${count}Street" id="w${count}Street" type="text" placeholder="Street number">
+                    </div>
+                        <div class="small-1 columns">
+                    <br>
+                        <input name="w${count}Zip" id="w${count}Zip" type="text" placeholder="Zip" required>
+                    </div>
+                    <input name="w${count}City" id="w${count}City" type="none" hidden>
+                    <input name="w${count}" id="w${count}State" type="none" hidden>
+                </div>
+        `;
+        document.getElementById(`addWitness`).addEventListener('click', () => {
+            document.getElementById(`witness`).innerHTML += witness;
+            count++;
+            return this.handleWitnesses(count);
+        });
     }
 
     performAjax(requestNum, sendToNode, callback) {
