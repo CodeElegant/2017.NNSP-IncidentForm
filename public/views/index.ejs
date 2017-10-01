@@ -8,26 +8,26 @@
 	<div class="small-2 columns"><br>v.2018.01</div>
 	<div class="small-2 columns vertical-center"><span class="button">Start New</span></div>
 	<div class="small-2 columns center">
-		<!--<img src='public/images/NSP_Logo.png' alt='NSP Logo' id='nspLogo' width="80" height="100">-->
+		<!--<img src="public/images/NSP_Logo.png" alt="NSP Logo" id="nspLogo" width="80" height="100">-->
 	</div>
 </div>
 <div class="panel radius">
-	<form id='mainForm'>
+	<form id="mainForm" novalidate>
 		<div class="row">
-			<fieldset id='dateTime'>
+			<fieldset id="dateTime">
             <legend>Date &amp; Time</legend>
                 <div class="row">
                     <div class="small-4 columns">
                         <span class="label">Day</span><br>
-                        <input name='day' id='day' type='text' required>
+                        <input name="day" id="day" type="text" required>
                     </div>
                     <div class="small-4 columns">
                         <span class="label">Date</span><br>
-                        <input name='date' id='date' type='text' required>
+                        <input name="date" id="date" type="text" required>
                     </div>
                     <div class="small-4 columns end">
                         <span class="label">Incident Time</span><br>
-                        <input name='incidentTime' id="incidentTime" type='time' autofocus required>
+                        <input name="incidentTime" id="incidentTime" type="time" autofocus required>
                     </div>
                 </div>
 			</fieldset>
@@ -51,10 +51,10 @@
 			<% include public/views/witness_completer.ejs %>
 
 			<div class="row">
-				<fieldset id='buttons'>
+				<fieldset id="buttons">
 					<div class="row">
 						<div class="small-3 columns">
-							<input type='submit' id='completed' value='Completed!' class="button large">
+							<input type="submit" id="submit" value="Completed!" class="button large">
 						</div>
 						<div class="small-3 columns float-right">
 							<a href="#" class="button large alert float-right" id="reset">Reset Form</a>

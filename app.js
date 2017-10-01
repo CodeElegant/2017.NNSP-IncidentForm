@@ -85,7 +85,7 @@ class app {
                         DATA_HANDLER.addData(formData);
                         formData = JSON.stringify(formData);
                         response.writeHead(200, {'content-type': 'application/json'});
-                        response.end(formData);
+                        response.end("done");
                     });
                 } else {
                     response.writeHead(405, "Method not supported", {'Content-Type': 'text/html'});
