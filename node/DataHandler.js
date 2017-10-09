@@ -74,6 +74,12 @@ class DataHandler {
     static addData(data) {
         DB.insert(data);
     }
+
+    static generateResultsData(callback) {
+        DB.find({ completed: '0' }, (err, docs) => {
+            callback(docs);
+        });
+    }
 }
 
 module.exports = DataHandler;

@@ -84,8 +84,13 @@ class app {
                     }).on('end', () => {
                         DATA_HANDLER.addData(formData);
                         formData = JSON.stringify(formData);
-                        response.writeHead(200, {'content-type': 'application/json'});
+                        response.writeHead(200, {'content-type': 'text/plain'});
                         response.end("done");
+                    });
+                } else if (request.headers['x-requested-with'] === 'XHR6') {
+                    DATA_HANDLER.generateResultsData((fetchedData) => {
+                        response.writeHead(200, {'content-type': 'application/json'});
+                        response.end(JSON.stringify(fetchedData));
                     });
                 } else {
                     response.writeHead(405, "Method not supported", {'Content-Type': 'text/html'});

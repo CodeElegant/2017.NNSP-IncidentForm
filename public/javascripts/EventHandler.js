@@ -306,6 +306,8 @@ export default class EventHandler {
         document.getElementById("submit").addEventListener("click", () => {
             let data = new FormData(document.querySelector("#mainForm"));
             this.performAjax("XHR5", data, (response) => {
+                // document.getElementById("mainForm").reset();
+                window.location.reload(true);
                 console.log(response);
             });
         });
