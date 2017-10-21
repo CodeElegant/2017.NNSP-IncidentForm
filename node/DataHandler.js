@@ -72,11 +72,13 @@ class DataHandler {
     }
 
     static addData(data) {
-        DB.insert(data);
+        DB.insert(data, (err, newDocs) => {
+            console.log(newDocs._id);
+        });
     }
 
     static generateResultsData(callback) {
-        DB.find({ completed: '0' }, (err, docs) => {
+        DB.find({}, (err, docs) => {
             callback(docs);
         });
     }

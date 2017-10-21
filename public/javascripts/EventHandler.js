@@ -1,6 +1,7 @@
 //   @todo
 
 "use strict";
+import SetSessionStorage from './SetSessionStorage.js';
 
 export default class EventHandler {
     constructor(year, day, month) {
@@ -306,10 +307,10 @@ export default class EventHandler {
         document.getElementById("submit").addEventListener("click", () => {
             let data = new FormData(document.querySelector("#mainForm"));
             this.performAjax("XHR5", data, (response) => {
-                // document.getElementById("mainForm").reset();
-                window.location.reload(true);
                 console.log(response);
             });
+            new SetSessionStorage();
+            window.open('/public/views/results.html', '_blank', 'location=yes,height=800,width=600,scrollbars=yes,status=yes');
         });
     }
 
