@@ -50,12 +50,13 @@ export default class SetSessionStorage {
         if (document.getElementById('locationLift').checked) {
             sessionStorage.setItem('location', document.getElementById('locationLift').value);
             sessionStorage.setItem('locationLift', document.getElementById('locationLift').value);
-            sessionStorage.setItem('whichLift', document.getElementById('whichLift').value);
+            sessionStorage.setItem('whichLift', document.getElementById('whichLift').options[document.getElementById('whichLift').selectedIndex].value);
         } else if (document.getElementById('locationHill').checked) {
             sessionStorage.setItem('location', document.getElementById('locationHill').value);
             sessionStorage.setItem('locationHill', document.getElementById('locationHill').value);
-            sessionStorage.setItem('whichHill', document.getElementById('whichHill').value);
-            sessionStorage.setItem('difficulty', document.getElementById('difficulty').value);
+            sessionStorage.setItem('whichHill', document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].text);
+            sessionStorage.setItem('difficulty', document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].value);
+            console.log(document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].value);
         } else if (document.getElementById('locationPremise').checked) {
             sessionStorage.setItem('location', document.getElementById('locationPremise').value);
         }

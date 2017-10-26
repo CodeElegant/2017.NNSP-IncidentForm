@@ -17,16 +17,16 @@ class results {
         if (sessionStorage.getItem('whichHill')) {
             document.getElementById('hill').checked = true;
             document.getElementById('location').innerText = sessionStorage.getItem('whichHill');
-            if (sessionStorage.getItem('difficulty') === "Easier") {
+            if (sessionStorage.getItem('difficulty') === "1") {
                 document.getElementById('easier').checked = true;
-            } else if (sessionStorage.getItem('difficulty') === "More Difficult") {
+            } else if (sessionStorage.getItem('difficulty') === "2") {
                 document.getElementById('moreDiff').checked = true;
-            } else if (sessionStorage.getItem('difficulty') === "Most Difficult") {
+            } else if (sessionStorage.getItem('difficulty') === "3") {
                 document.getElementById('mostDiff').checked = true;
                 if (sessionStorage.getItem('whichHill') === "Terrain Park") {
                     document.getElementById('freestyle').checked = true;
                 }
-            } else if (sessionStorage.getItem('difficulty') === "Experts Only") {
+            } else if (sessionStorage.getItem('difficulty') === "4") {
                 document.getElementById('experts').checked = true;
             }
         } else if (sessionStorage.getItem('whichLift')) {
