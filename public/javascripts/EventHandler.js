@@ -126,15 +126,15 @@ export default class EventHandler {
     }
 
     handleNumOther() {
-        document.getElementById("numOther").style.visibility = "hidden";
+        document.getElementById("otherNum").style.visibility = "hidden";
         const OTHER = 2;
         let other = document.forms[0].elements["numTimes"];
         other[OTHER].addEventListener("change", () => {
-            document.getElementById("numOther").style.visibility = "visible";
+            document.getElementById("otherNum").style.visibility = "visible";
         });
         for (let i = 0; i < OTHER; i++) {
             other[i].addEventListener("change", () => {
-                document.getElementById("numOther").style.visibility = "hidden";
+                document.getElementById("otherNum").style.visibility = "hidden";
             });
         }
     }
@@ -188,17 +188,30 @@ export default class EventHandler {
     }
 
     handleRental() {
-        const OTHER_RENTAL = 4;
+        const OWN = 0, AREA_RENT = 1, BORROWED = 2, DEMO = 3, OTHER_RENTAL = 4;
         document.getElementById("rentalEquip").style.visibility = "hidden";
+        document.getElementById("rentalEquipNums").style.visibility = "hidden";
         let owner = document.forms[0].elements["owner"];
+        owner[OWN].addEventListener("click", () => {
+            document.getElementById("rentalEquip").style.visibility = "hidden";
+            document.getElementById("rentalEquipNums").style.visibility = "hidden";
+        });
+        owner[AREA_RENT].addEventListener("click", () => {
+            document.getElementById("rentalEquip").style.visibility = "hidden";
+            document.getElementById("rentalEquipNums").style.visibility = "visible";
+        });
+        owner[BORROWED].addEventListener("click", () => {
+            document.getElementById("rentalEquip").style.visibility = "hidden";
+            document.getElementById("rentalEquipNums").style.visibility = "hidden";
+        });
+        owner[DEMO].addEventListener("click", () => {
+            document.getElementById("rentalEquip").style.visibility = "hidden";
+            document.getElementById("rentalEquipNums").style.visibility = "visible";
+        });
         owner[OTHER_RENTAL].addEventListener("click", () => {
             document.getElementById("rentalEquip").style.visibility = "visible";
+            document.getElementById("rentalEquipNums").style.visibility = "visible";
         });
-        for (let i = 0; i < OTHER_RENTAL; i++) {
-            owner[i].addEventListener("click", () => {
-                document.getElementById("rentalEquip").style.visibility = "hidden";
-            });
-        }
     }
 
     handleHelmet() {

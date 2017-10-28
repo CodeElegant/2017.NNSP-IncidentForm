@@ -85,6 +85,7 @@ export default class SetSessionStorage {
         } else if (document.getElementById('timesOther').checked) {
             sessionStorage.setItem('timesWhere', document.getElementById('timesOther').value);
             sessionStorage.setItem('setOther', document.getElementById('numOther').value);
+            console.log(document.getElementById('numOther').value);
         }
         sessionStorage.setItem('numTimesToday', document.getElementById('numTimesToday').value);
         sessionStorage.setItem('numTimesPrior', document.getElementById('numTimesPrior').value);
@@ -115,6 +116,11 @@ export default class SetSessionStorage {
             sessionStorage.setItem('owner', document.getElementById('ownerRent').value);
             sessionStorage.setItem('skiNum', document.getElementById('skiNum').value);
             sessionStorage.setItem('bootNum', document.getElementById('bootNum').value);
+            sessionStorage.setItem('shopName', "Nub's Nob");
+            sessionStorage.setItem('shopStreet', "500 Nub's Nob Road");
+            sessionStorage.setItem('shopCity', "Harbor Springs");
+            sessionStorage.setItem('shopState', "MI");
+            sessionStorage.setItem('shopZip', "49770");
         } else if (document.getElementById('ownerOther').checked) {
             sessionStorage.setItem('owner', document.getElementById('ownerOther').value);
             sessionStorage.setItem('skiNum', document.getElementById('skiNum').value);
@@ -130,6 +136,11 @@ export default class SetSessionStorage {
             sessionStorage.setItem('owner', document.getElementById('ownerDemo').value);
             sessionStorage.setItem('skiNum', document.getElementById('skiNum').value);
             sessionStorage.setItem('bootNum', document.getElementById('bootNum').value);
+            sessionStorage.setItem('shopName', "Nub's Nob");
+            sessionStorage.setItem('shopStreet', "500 Nub's Nob Road");
+            sessionStorage.setItem('shopCity', "Harbor Springs");
+            sessionStorage.setItem('shopState', "MI");
+            sessionStorage.setItem('shopZip', "49770");
         }
         sessionStorage.setItem('bindingMake', document.getElementById('bindingMake').value);
         sessionStorage.setItem('bindingModel', document.getElementById('bindingModel').value);
@@ -157,7 +168,7 @@ export default class SetSessionStorage {
 
         //INCIDENT DESCRIPTION---------------------------------------------------------------------------------------------
         sessionStorage.setItem('incidentDescription', document.getElementById('incidentDescription').value);
-        sessionStorage.setItem('statementTaker', document.getElementById('statementTaker').value);
+        sessionStorage.setItem('statementTaker', document.getElementById('statementTaker_0').value);
 
         //PROBABLE INJURY--------------------------------------------------------------------------------------------------
         let injuryTypeBoxes = "";
@@ -227,8 +238,8 @@ export default class SetSessionStorage {
         if (document.getElementById('scenePatrollers_1')) {
             sessionStorage.setItem('scenePatrollers', document.getElementById('scenePatrollers_0').value);
         }
-        if (document.getElementById('transportingPatrollers_1')) {
-            sessionStorage.setItem('transportingPatrollers', document.getElementById('transportingPatrollers_0').value);
+        if (document.getElementById('transportPatrollers_1')) {
+            sessionStorage.setItem('transportPatrollers', document.getElementById('transportPatrollers_0').value);
         }
         if (document.getElementById('aidRoomPatrollers_1')) {
             sessionStorage.setItem('aidPatrollers', document.getElementById('aidRoomPatrollers_0').value);

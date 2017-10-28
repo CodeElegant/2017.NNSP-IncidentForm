@@ -68,5 +68,6 @@ class main {
 }
 
 window.addEventListener('load', () => {
+    sessionStorage.clear();
     new main();
 });

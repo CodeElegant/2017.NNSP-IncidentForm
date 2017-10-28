@@ -169,7 +169,6 @@ class results {
         }
         if (sessionStorage.getItem('owner') === "Demo") {
             document.getElementById('demo').checked = true;
-            document.getElementById('otherRental').checked = true;
             document.getElementById('skiNum').innerText = sessionStorage.getItem('skiNum');
             document.getElementById('bootNum').innerText = sessionStorage.getItem('bootNum');
             document.getElementById('shopName').innerText = sessionStorage.getItem('shopName');
@@ -337,8 +336,8 @@ class results {
         if (sessionStorage.getItem('scenePatrollers')) {
             document.getElementById('scenePatrollers').innerText = sessionStorage.getItem('scenePatrollers');
         }
-        if (sessionStorage.getItem('transportingPatrollers')) {
-            document.getElementById('transportingPatrollers').innerText = sessionStorage.getItem('transportingPatrollers');
+        if (sessionStorage.getItem('transportPatrollers')) {
+            document.getElementById('transportPatrollers').innerText = sessionStorage.getItem('transportPatrollers');
         }
         if (sessionStorage.getItem('aidPatrollers')) {
             document.getElementById('aidPatrollers').innerText = sessionStorage.getItem('aidPatrollers');
