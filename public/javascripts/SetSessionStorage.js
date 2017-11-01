@@ -235,6 +235,8 @@ export default class SetSessionStorage {
         sessionStorage.setItem('hillFirstAid', document.getElementById('hillFirstAid').value);
         sessionStorage.setItem('patrolRoomAid', document.getElementById('patrolRoomAid').value);
 
+
+
         if (document.getElementById('scenePatrollers_1')) {
             sessionStorage.setItem('scenePatrollers', document.getElementById('scenePatrollers_0').value);
         }
