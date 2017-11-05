@@ -235,16 +235,45 @@ export default class SetSessionStorage {
         sessionStorage.setItem('hillFirstAid', document.getElementById('hillFirstAid').value);
         sessionStorage.setItem('patrolRoomAid', document.getElementById('patrolRoomAid').value);
 
-
-
         if (document.getElementById('scenePatrollers_1')) {
-            sessionStorage.setItem('scenePatrollers', document.getElementById('scenePatrollers_0').value);
+            let count = 0;
+            while (count >= 0) {
+                console.log(`looping`);
+                let divCount = count + 1;
+                if (document.getElementById(`scenePatrollers_${divCount}`)) {
+                    sessionStorage.setItem(`scenePatrollers_${count}`, document.getElementById(`scenePatrollers_${count}`).value);
+                    count++;
+                } else {
+                    break;
+                }
+            }
         }
         if (document.getElementById('transportPatrollers_1')) {
-            sessionStorage.setItem('transportPatrollers', document.getElementById('transportPatrollers_0').value);
+            let count = 0;
+            while (count >= 0) {
+                console.log(`looping`);
+                let divCount = count + 1;
+                if (document.getElementById(`transportPatrollers_${divCount}`)) {
+                    sessionStorage.setItem(`transportPatrollers_${count}`, document.getElementById(`transportPatrollers_${count}`).value);
+                    count++;
+                } else {
+                    break;
+                }
+            }
         }
         if (document.getElementById('aidRoomPatrollers_1')) {
             sessionStorage.setItem('aidPatrollers', document.getElementById('aidRoomPatrollers_0').value);
+            let count = 0;
+            while (count >= 0) {
+                console.log(`looping`);
+                let divCount = count + 1;
+                if (document.getElementById(`aidRoomPatrollers_${divCount}`)) {
+                    sessionStorage.setItem(`aidPatrollers_${count}`, document.getElementById(`aidRoomPatrollers_${count}`).value);
+                    count++;
+                } else {
+                    break;
+                }
+            }
         }
 
         //TRANSPORTATION & DESTINATION-------------------------------------------------------------------------------------

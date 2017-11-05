@@ -272,7 +272,6 @@ export default class EventHandler {
             let removeMe; //used in line below to create a named arrow func. that allows removeEventListener to work
             document.getElementById(`${patrollerType}_${count}`).addEventListener("change", removeMe = () => {
                 document.getElementById(`${patrollerType}Count`).value = count;
-                console.log(document.getElementById(`${patrollerType}Count`).value);
                 document.getElementById(`${patrollerType}_${count}`).removeEventListener("change", removeMe);
                 count++;
                 return this.handlePatrollers(patrollerType, count);

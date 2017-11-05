@@ -333,14 +333,44 @@ class results {
         document.getElementById('patrolRoomAid').innerText = sessionStorage.getItem('patrolRoomAid');
 
     //PATROLLERS------------------------------------------------------------------------------------------------------------
-        if (sessionStorage.getItem('scenePatrollers')) {
-            document.getElementById('scenePatrollers').innerText = sessionStorage.getItem('scenePatrollers');
+        if (sessionStorage.getItem('scenePatrollers_0')) {
+            document.getElementById('scenePatrollers').innerText = sessionStorage.getItem('scenePatrollers_0');
+            let count = 1;
+            while (count > 0) {
+                if (sessionStorage.getItem(`scenePatrollers_${count}`)) {
+                    console.log(sessionStorage.getItem(`scenePatrollers_${count}`));
+                    document.getElementById('scenePatrollers').innerText += (`, ` + sessionStorage.getItem(`scenePatrollers_${count}`));
+                    count++;
+                } else {
+                    break;
+                }
+            }
         }
-        if (sessionStorage.getItem('transportPatrollers')) {
-            document.getElementById('transportPatrollers').innerText = sessionStorage.getItem('transportPatrollers');
+        if (sessionStorage.getItem('transportPatrollers_0')) {
+            document.getElementById('transportPatrollers').innerText = sessionStorage.getItem('transportPatrollers_0');
+            let count = 1;
+            while (count > 0) {
+                if (sessionStorage.getItem(`transportPatrollers_${count}`)) {
+                    console.log(sessionStorage.getItem(`transportPatrollers_${count}`));
+                    document.getElementById('transportPatrollers').innerText += (`, ` + sessionStorage.getItem(`transportPatrollers_${count}`));
+                    count++;
+                } else {
+                    break;
+                }
+            }
         }
-        if (sessionStorage.getItem('aidPatrollers')) {
-            document.getElementById('aidPatrollers').innerText = sessionStorage.getItem('aidPatrollers');
+        if (sessionStorage.getItem('aidPatrollers_0')) {
+            document.getElementById('aidPatrollers').innerText = sessionStorage.getItem('aidPatrollers_0');
+            let count = 1;
+            while (count > 0) {
+                if (sessionStorage.getItem(`aidPatrollers_${count}`)) {
+                    console.log(sessionStorage.getItem(`aidPatrollers_${count}`));
+                    document.getElementById('aidPatrollers').innerText += (`, ` + sessionStorage.getItem(`aidPatrollers_${count}`));
+                    count++;
+                } else {
+                    break;
+                }
+            }
         }
 
     //TRANSPORTATION & DESTINATION------------------------------------------------------------------------------------------
