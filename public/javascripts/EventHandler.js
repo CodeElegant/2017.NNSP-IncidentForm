@@ -211,6 +211,15 @@ export default class EventHandler {
         owner[OTHER_RENTAL].addEventListener("click", () => {
             document.getElementById("rentalEquip").style.visibility = "visible";
             document.getElementById("rentalEquipNums").style.visibility = "visible";
+            document.getElementById("shopZip").addEventListener("blur", () => {
+                for (let element of this.zipData) {
+                    if (document.getElementById("shopZip").value === element[0]) {
+                        document.getElementById("shopCity").value = element[1];
+                        document.getElementById("shopState").value = element[2];
+                        break;
+                    }
+                }
+            });
         });
     }
 

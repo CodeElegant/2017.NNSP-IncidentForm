@@ -99,6 +99,11 @@ class results {
             }
         } else if (sessionStorage.getItem('timesWhere') === 'Other') {
             document.getElementById('timesOther').innerText = sessionStorage.getItem('setOther');
+            document.getElementById('timesToday').innerText = sessionStorage.getItem('numTimesToday');
+            if (sessionStorage.getItem('numTimesPrior') >= 0) {
+                document.getElementById('trailLiftPrior').checked = true;
+                document.getElementById('timesPrior').innerText = sessionStorage.getItem('numTimesPrior');
+            }
         } else {
             document.getElementById('timesOther').innerText = 'N/A';
         }
@@ -338,7 +343,6 @@ class results {
             let count = 1;
             while (count > 0) {
                 if (sessionStorage.getItem(`scenePatrollers_${count}`)) {
-                    console.log(sessionStorage.getItem(`scenePatrollers_${count}`));
                     document.getElementById('scenePatrollers').innerText += (`, ` + sessionStorage.getItem(`scenePatrollers_${count}`));
                     count++;
                 } else {
@@ -351,7 +355,6 @@ class results {
             let count = 1;
             while (count > 0) {
                 if (sessionStorage.getItem(`transportPatrollers_${count}`)) {
-                    console.log(sessionStorage.getItem(`transportPatrollers_${count}`));
                     document.getElementById('transportPatrollers').innerText += (`, ` + sessionStorage.getItem(`transportPatrollers_${count}`));
                     count++;
                 } else {
@@ -364,7 +367,6 @@ class results {
             let count = 1;
             while (count > 0) {
                 if (sessionStorage.getItem(`aidPatrollers_${count}`)) {
-                    console.log(sessionStorage.getItem(`aidPatrollers_${count}`));
                     document.getElementById('aidPatrollers').innerText += (`, ` + sessionStorage.getItem(`aidPatrollers_${count}`));
                     count++;
                 } else {

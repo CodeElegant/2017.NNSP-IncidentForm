@@ -56,7 +56,6 @@ export default class SetSessionStorage {
             sessionStorage.setItem('locationHill', document.getElementById('locationHill').value);
             sessionStorage.setItem('whichHill', document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].text);
             sessionStorage.setItem('difficulty', document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].value);
-            console.log(document.getElementById('whichHill').options[document.getElementById('whichHill').selectedIndex].value);
         } else if (document.getElementById('locationPremise').checked) {
             sessionStorage.setItem('location', document.getElementById('locationPremise').value);
         }
@@ -85,7 +84,6 @@ export default class SetSessionStorage {
         } else if (document.getElementById('timesOther').checked) {
             sessionStorage.setItem('timesWhere', document.getElementById('timesOther').value);
             sessionStorage.setItem('setOther', document.getElementById('numOther').value);
-            console.log(document.getElementById('numOther').value);
         }
         sessionStorage.setItem('numTimesToday', document.getElementById('numTimesToday').value);
         sessionStorage.setItem('numTimesPrior', document.getElementById('numTimesPrior').value);
@@ -238,7 +236,6 @@ export default class SetSessionStorage {
         if (document.getElementById('scenePatrollers_1')) {
             let count = 0;
             while (count >= 0) {
-                console.log(`looping`);
                 let divCount = count + 1;
                 if (document.getElementById(`scenePatrollers_${divCount}`)) {
                     sessionStorage.setItem(`scenePatrollers_${count}`, document.getElementById(`scenePatrollers_${count}`).value);
@@ -251,7 +248,6 @@ export default class SetSessionStorage {
         if (document.getElementById('transportPatrollers_1')) {
             let count = 0;
             while (count >= 0) {
-                console.log(`looping`);
                 let divCount = count + 1;
                 if (document.getElementById(`transportPatrollers_${divCount}`)) {
                     sessionStorage.setItem(`transportPatrollers_${count}`, document.getElementById(`transportPatrollers_${count}`).value);
@@ -265,7 +261,6 @@ export default class SetSessionStorage {
             sessionStorage.setItem('aidPatrollers', document.getElementById('aidRoomPatrollers_0').value);
             let count = 0;
             while (count >= 0) {
-                console.log(`looping`);
                 let divCount = count + 1;
                 if (document.getElementById(`aidRoomPatrollers_${divCount}`)) {
                     sessionStorage.setItem(`aidPatrollers_${count}`, document.getElementById(`aidRoomPatrollers_${count}`).value);
