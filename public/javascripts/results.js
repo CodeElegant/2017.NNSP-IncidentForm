@@ -486,7 +486,35 @@ class results {
         }
 
     //WITNESSES-------------------------------------------------------------------------------------------------------------
-        if (typeof sessionStorage.getItem('witnessNum') !== 'undefined') {
+        if (sessionStorage.getItem('w0Name')) {
+            let witness =
+            document.getElementById('witnesses').innerText =
+                document.getElementById(witnessName).innerText = sessionStorage.getItem("w" + i + "Name");
+                document.getElementById(witnessStreet).innerText = sessionStorage.getItem("w" + i + "Street");
+                document.getElementById(witnessCityStateZip).innerText = sessionStorage.getItem("w" + i + "CityStateZip");
+                document.getElementById(witnessPhone).innerText = sessionStorage.getItem("w" + i + "HomePhoneNum");
+                document.getElementById(witnessCell).innerText = sessionStorage.getItem("w" + i + "CellPhoneNum");
+            let count = 1;
+            while (count > 0) {
+                if (sessionStorage.getItem(`w${count}Name`)) {
+                    document.getElementById('witnesses').innerText =
+                        document.getElementById(witnessName).innerText = sessionStorage.getItem("w" + i + "Name");
+                        document.getElementById(witnessStreet).innerText = sessionStorage.getItem("w" + i + "Street");
+                        document.getElementById(witnessCityStateZip).innerText = sessionStorage.getItem("w" + i + "CityStateZip");
+                        document.getElementById(witnessPhone).innerText = sessionStorage.getItem("w" + i + "HomePhoneNum");
+                        document.getElementById(witnessCell).innerText = sessionStorage.getItem("w" + i + "CellPhoneNum");
+                    count++;
+                } else {
+                    break;
+                }
+            }
+        }
+
+
+
+
+        if (typeof sessionStorage.getItem('w0Name') !== 'undefined') {
+            console.log(sessionStorage.getItem('w0Name'));
             for (let i = 0; i < sessionStorage.getItem('numWitness'); i++) {
                 let witnessLabel = "Witness " + (i + 1);
                 let div = document.createElement("div");

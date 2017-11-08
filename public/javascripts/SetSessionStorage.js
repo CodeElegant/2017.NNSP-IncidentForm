@@ -297,6 +297,24 @@ export default class SetSessionStorage {
             }
         }
 
+        //WITNESSESS
+        if (document.getElementById('w0LastName')) {
+            let count = 0;
+            while (count >= 0) {
+                if (document.getElementById(`w${count}LastName`)) {
+                    console.log(document.getElementById(`w${count}LastName`).value);
+                    sessionStorage.setItem(`w${count}Name`, document.getElementById(`w${count}LastName`).value + ", " + document.getElementById(`w${count}FirstName`).value);
+                    sessionStorage.setItem(`w${count}Street`, document.getElementById(`w${count}Street`).value);
+                    sessionStorage.setItem(`w${count}CityStateZip`, document.getElementById(`w${count}City`).value + ", " + document.getElementById(`w${count}State`).value + " " + document.getElementById(`w${count}Zip`).value);
+                    sessionStorage.setItem(`w${count}HomePhoneNum`, document.getElementById(`w${count}HomePhoneNum`).value);
+                    sessionStorage.setItem(`w${count}CellPhoneNum`, document.getElementById(`w${count}CellPhoneNum`).value);
+                    count++;
+                } else {
+                    break;
+                }
+            }
+        }
+
         //REPORT COMPLETER-------------------------------------------------------------------------------------------------
         sessionStorage.setItem('reportCompleter', document.getElementById('reportCompleter_0').value);
         sessionStorage.setItem('dateComplete', document.getElementById('dateComplete').value);

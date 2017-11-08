@@ -1,4 +1,4 @@
-//   @todo
+//   @todo Witness stuff
 
 "use strict";
 import SetSessionStorage from './SetSessionStorage.js';
@@ -22,7 +22,7 @@ export default class EventHandler {
         this.handlePatrollers("scenePatrollers", 0);
         this.handlePatrollers("transportPatrollers", 0);
         this.handlePatrollers("aidRoomPatrollers", 0);
-        this.handleWitnesses(1);
+        this.handleWitnesses(0);
         this.handlePatrollers("reportCompleter", 0);
         this.handleSubmit();
     }
@@ -289,10 +289,11 @@ export default class EventHandler {
     }
 
     handleWitnesses(count) {
+        let labelCount = count + 1;
         let witness = `
                 <div class="row">
                     <div class="small-2 columns">
-                        <label class="radius secondary label">Witness ${count}</label>
+                        <label class="radius secondary label">Witness ${labelCount}</label>
                         <input name="w${count}LastName" id="w${count}LastName" type="text" placeholder="Last Name">
                     </div>
                     <div class="small-2 columns">
@@ -324,6 +325,22 @@ export default class EventHandler {
             count++;
             return this.handleWitnesses(count);
         });
+
+        /*
+        //WITNESSES-------------------------------------------------------------------------------------------------------------
+        document.getElementById(`w${count}Zip`).addEventListener("click", () => {
+            populateCityState(document.getElementById($witnessZip).value);
+            document.getElementById($city).value = $cityState[0];
+            var state = $cityState[1].replace(/(\r\n|\n|\r)/gm, "");
+            document.getElementById($state).value = state;
+            sessionStorage.setItem("w" + $witnessCounter + "Name", document.getElementById("w" + $witnessCounter + "LastName").value + ", " + document.getElementById("w" + $witnessCounter + "FirstName").value);
+            sessionStorage.setItem("w" + $witnessCounter + "Street", document.getElementById("w" + $witnessCounter + "Street").value);
+            sessionStorage.setItem("w" + $witnessCounter + "HomePhoneNum", document.getElementById("w" + $witnessCounter + "HomePhoneNum").value);
+            sessionStorage.setItem("w" + $witnessCounter + "CellPhoneNum", document.getElementById("w" + $witnessCounter + "CellPhoneNum").value);
+            sessionStorage.setItem("w" + $witnessCounter + "CityStateZip", document.getElementById("w" + $witnessCounter + "City").value + ", " + document.getElementById("w" + $witnessCounter + "State").value + " " + document.getElementById("w" + $witnessCounter + "Zip").value);
+            sessionStorage.setItem('numWitness', ($witnessCounter + 1));
+        });
+        */
     }
 
     handleSubmit() {
