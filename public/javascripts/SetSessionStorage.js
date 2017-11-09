@@ -302,7 +302,6 @@ export default class SetSessionStorage {
             let count = 0;
             while (count >= 0) {
                 if (document.getElementById(`w${count}LastName`)) {
-                    console.log(document.getElementById(`w${count}LastName`).value);
                     sessionStorage.setItem(`w${count}Name`, document.getElementById(`w${count}LastName`).value + ", " + document.getElementById(`w${count}FirstName`).value);
                     sessionStorage.setItem(`w${count}Street`, document.getElementById(`w${count}Street`).value);
                     sessionStorage.setItem(`w${count}CityStateZip`, document.getElementById(`w${count}City`).value + ", " + document.getElementById(`w${count}State`).value + " " + document.getElementById(`w${count}Zip`).value);

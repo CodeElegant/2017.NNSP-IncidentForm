@@ -322,25 +322,22 @@ export default class EventHandler {
         `;
         document.getElementById("addWitness").addEventListener("click", () => {
             document.getElementById("witness").innerHTML += witness;
+            document.getElementById(`w${count}Zip`).addEventListener("blur", () => {
+                console.log(document.getElementById(`w${count}Zip`).value);
+                /*
+                for (let element of this.zipData) {
+                    if (document.getElementById(`w${count}Zip`).value === element[0]) {
+                        document.getElementById(`w${count}City`).value = element[1];
+                        document.getElementById(`w${count}State`).value = element[2];
+                        break;
+                    }
+                }
+                */
+            });
+
             count++;
             return this.handleWitnesses(count);
         });
-
-        /*
-        //WITNESSES-------------------------------------------------------------------------------------------------------------
-        document.getElementById(`w${count}Zip`).addEventListener("click", () => {
-            populateCityState(document.getElementById($witnessZip).value);
-            document.getElementById($city).value = $cityState[0];
-            var state = $cityState[1].replace(/(\r\n|\n|\r)/gm, "");
-            document.getElementById($state).value = state;
-            sessionStorage.setItem("w" + $witnessCounter + "Name", document.getElementById("w" + $witnessCounter + "LastName").value + ", " + document.getElementById("w" + $witnessCounter + "FirstName").value);
-            sessionStorage.setItem("w" + $witnessCounter + "Street", document.getElementById("w" + $witnessCounter + "Street").value);
-            sessionStorage.setItem("w" + $witnessCounter + "HomePhoneNum", document.getElementById("w" + $witnessCounter + "HomePhoneNum").value);
-            sessionStorage.setItem("w" + $witnessCounter + "CellPhoneNum", document.getElementById("w" + $witnessCounter + "CellPhoneNum").value);
-            sessionStorage.setItem("w" + $witnessCounter + "CityStateZip", document.getElementById("w" + $witnessCounter + "City").value + ", " + document.getElementById("w" + $witnessCounter + "State").value + " " + document.getElementById("w" + $witnessCounter + "Zip").value);
-            sessionStorage.setItem('numWitness', ($witnessCounter + 1));
-        });
-        */
     }
 
     handleSubmit() {

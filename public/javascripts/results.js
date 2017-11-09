@@ -487,63 +487,22 @@ class results {
 
     //WITNESSES-------------------------------------------------------------------------------------------------------------
         if (sessionStorage.getItem('w0Name')) {
-            let witness =
-            document.getElementById('witnesses').innerText =
-                document.getElementById(witnessName).innerText = sessionStorage.getItem("w" + i + "Name");
-                document.getElementById(witnessStreet).innerText = sessionStorage.getItem("w" + i + "Street");
-                document.getElementById(witnessCityStateZip).innerText = sessionStorage.getItem("w" + i + "CityStateZip");
-                document.getElementById(witnessPhone).innerText = sessionStorage.getItem("w" + i + "HomePhoneNum");
-                document.getElementById(witnessCell).innerText = sessionStorage.getItem("w" + i + "CellPhoneNum");
-            let count = 1;
-            while (count > 0) {
+            let count = 0;
+            while (count >= 0) {
                 if (sessionStorage.getItem(`w${count}Name`)) {
-                    document.getElementById('witnesses').innerText =
-                        document.getElementById(witnessName).innerText = sessionStorage.getItem("w" + i + "Name");
-                        document.getElementById(witnessStreet).innerText = sessionStorage.getItem("w" + i + "Street");
-                        document.getElementById(witnessCityStateZip).innerText = sessionStorage.getItem("w" + i + "CityStateZip");
-                        document.getElementById(witnessPhone).innerText = sessionStorage.getItem("w" + i + "HomePhoneNum");
-                        document.getElementById(witnessCell).innerText = sessionStorage.getItem("w" + i + "CellPhoneNum");
+                    document.getElementById('witnesses').innerText += (
+                        sessionStorage.getItem(`w${count}Name`)
+                        + `,   ` + sessionStorage.getItem(`w${count}Street`)
+                        + `,   ` + sessionStorage.getItem(`w${count}CityStateZip`)
+                        + `; Home Phone: ` + sessionStorage.getItem(`w${count}HomePhoneNum`)
+                        + `, Cell Phone: ` + sessionStorage.getItem(`w${count}CellPhoneNum`)
+                        + (`\n`)
+                    );
                     count++;
                 } else {
                     break;
                 }
             }
-        }
-
-
-
-
-        if (typeof sessionStorage.getItem('w0Name') !== 'undefined') {
-            console.log(sessionStorage.getItem('w0Name'));
-            for (let i = 0; i < sessionStorage.getItem('numWitness'); i++) {
-                let witnessLabel = "Witness " + (i + 1);
-                let div = document.createElement("div");
-                div.className = 'col-17';
-                div.id = ("witness" + i);
-                let witnessName = "witnessName" + i;
-                let witnessStreet = "witnessStreet" + i;
-                let witnessCityStateZip = "witnessCityStateZip" + i;
-                let witnessPhone = "witnessPhone" + i;
-                let witnessCell = "witnessCell" + i;
-                div.innerHTML = '<label class="bold">' + witnessLabel + ':</label>'
-                    + ' <span id=' + witnessName + '></span>' + "; "
-                    + ' <span id=' + witnessStreet + '></span>' + "; " + '<span id=' + witnessCityStateZip + '></span>'
-                    + ' <span id=' + witnessPhone + '></span>' + "; " + '<span id=' + witnessCell + '></span>'
-                    + '<br>';
-                document.getElementById('witnesses').appendChild(div);
-                document.getElementById(witnessName).innerText = sessionStorage.getItem("w" + i + "Name");
-                document.getElementById(witnessStreet).innerText = sessionStorage.getItem("w" + i + "Street");
-                document.getElementById(witnessCityStateZip).innerText = sessionStorage.getItem("w" + i + "CityStateZip");
-                document.getElementById(witnessPhone).innerText = sessionStorage.getItem("w" + i + "HomePhoneNum");
-                document.getElementById(witnessCell).innerText = sessionStorage.getItem("w" + i + "CellPhoneNum");
-            }
-        } else {
-            let span = document.createElement("span");
-            span.className = 'col-4 middle';
-            span.id = ("witnessNA");
-            span.innerHTML = '<br><br><h4 class="h4">N/A</h4>';
-            document.getElementById('witnesses').appendChild(span);
-            document.getElementById('noWitness').checked = true;
         }
 
     //REPORT COMPLETER------------------------------------------------------------------------------------------------------
