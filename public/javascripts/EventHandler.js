@@ -290,8 +290,10 @@ export default class EventHandler {
 
     handleWitnesses(count) {
         let labelCount = count + 1;
+        let witnessDiv = document.createElement('div');
+        witnessDiv.className = "row";
+        witnessDiv.id = `w${count}`;
         let witness = `
-                <div class="row">
                     <div class="small-2 columns">
                         <label class="radius secondary label">Witness ${labelCount}</label>
                         <input name="w${count}LastName" id="w${count}LastName" type="text" placeholder="Last Name">
@@ -318,13 +320,11 @@ export default class EventHandler {
                     </div>
                     <input name="w${count}City" id="w${count}City" type="none" hidden>
                     <input name="w${count}" id="w${count}State" type="none" hidden>
-                </div>
         `;
         document.getElementById("addWitness").addEventListener("click", () => {
-            document.getElementById("witness").innerHTML += witness;
+            document.getElementById("witness").appendChild(witnessDiv);
+            document.getElementById(witnessDiv.id).innerHTML += witness;
             document.getElementById(`w${count}Zip`).addEventListener("blur", () => {
-                console.log(document.getElementById(`w${count}Zip`).value);
-                /*
                 for (let element of this.zipData) {
                     if (document.getElementById(`w${count}Zip`).value === element[0]) {
                         document.getElementById(`w${count}City`).value = element[1];
@@ -332,10 +332,8 @@ export default class EventHandler {
                         break;
                     }
                 }
-                */
+                count++;
             });
-
-            count++;
             return this.handleWitnesses(count);
         });
     }
@@ -347,7 +345,7 @@ export default class EventHandler {
                 console.log(response);
             });
             new SetSessionStorage();
-            window.open('/public/views/results.html', '_blank', 'location=yes,height=800,width=600,scrollbars=yes,status=yes');
+            window.open('/public/views/results.html', '_blank', 'location=yes,height=800,width=800,scrollbars=yes,status=yes');
         });
     }
 

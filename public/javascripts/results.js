@@ -503,6 +503,8 @@ class results {
                     break;
                 }
             }
+        } else {
+            document.getElementById('noWitness').checked = true;
         }
 
     //REPORT COMPLETER------------------------------------------------------------------------------------------------------
