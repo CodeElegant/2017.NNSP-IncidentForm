@@ -415,28 +415,29 @@ class results {
 
     //SITE CONDITIONS-------------------------------------------------------------------------------------------------------
         if (sessionStorage.getItem('sceneSurface')) {
-            if (sessionStorage.getItem('sceneSurface').match("Powder")) {
+            console.log(sessionStorage.getItem('sceneSurface'));
+            if (sessionStorage.getItem('sceneSurface').match("powder")) {
                 document.getElementById('powder').checked = true;
             }
-            if (sessionStorage.getItem('sceneSurface').match("Packedpowder")) {
+            if (sessionStorage.getItem('sceneSurface').match("packedpowdr")) {
                 document.getElementById('packedPowder').checked = true;
             }
-            if (sessionStorage.getItem('sceneSurface').match("Hardpacked")) {
+            if (sessionStorage.getItem('sceneSurface').match("hardpacked")) {
                 document.getElementById('hardPacked').checked = true;
             }
-            if (sessionStorage.getItem('sceneSurface').match("Variable")) {
+            if (sessionStorage.getItem('sceneSurface').match("variable")) {
                 document.getElementById('variable').checked = true;
             }
-            if (sessionStorage.getItem('sceneSurface').match("Corn")) {
+            if (sessionStorage.getItem('sceneSurface').match("corn")) {
                 document.getElementById('corn').checked = true;
             }
-            if (sessionStorage.getItem('sceneSurface').match("Granular")) {
+            if (sessionStorage.getItem('sceneSurface').match("granular")) {
                 document.getElementById('loose').checked = true;
             }
-            if (sessionStorage.getItem('sceneSurface').match("Wet")) {
+            if (sessionStorage.getItem('sceneSurface').match("wet")) {
                 document.getElementById('wet').checked = true;
             }
-            if (sessionStorage.getItem('sceneSurface').match("Other")) {
+            if (sessionStorage.getItem('sceneSurface').match("other")) {
                 document.getElementById('other').checked = true;
                 if (sessionStorage.getItem('sceneSurfaceOther')) {
                     document.getElementById('surfaceConditionsOther').innerText = sessionStorage.getItem('sceneSurfaceOther');
@@ -512,6 +513,7 @@ class results {
         document.getElementById('dateComplete').innerText = sessionStorage.getItem('dateComplete');
 }
 
+//For later when desiring to get results from DB (needs work)
 /*
     populateResults() {
         this.performAjax('XHR6', 0, (response) => {

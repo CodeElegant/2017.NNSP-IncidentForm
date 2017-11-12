@@ -104,6 +104,10 @@ class app {
                 DATA_HANDLER.renderDom(request.url.slice(1), 'image/png', httpHandler, 'binary');
             } else if (request.url.indexOf('results.html') >= 0) {
                 DATA_HANDLER.renderDom('public/views/results.html', 'text/html', httpHandler, 'utf-8');
+            } else if (request.url.indexOf('skiRental.html') >= 0) {
+                DATA_HANDLER.renderDom('public/views/skiRental.html', 'text/html', httpHandler, 'utf-8');
+            } else if (request.url.indexOf('helmetRental.html') >= 0) {
+                DATA_HANDLER.renderDom('public/views/helmetRental.html', 'text/html', httpHandler, 'utf-8');
             } else if (request.url.indexOf('/') >= 0) {
                 DATA_HANDLER.renderDom('public/views/index.ejs', 'text/html', httpHandler, 'utf-8');
             } else {

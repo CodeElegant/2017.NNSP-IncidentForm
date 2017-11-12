@@ -202,6 +202,7 @@ export default class SetSessionStorage {
             }
         }
         sessionStorage.setItem('sceneSurface', conditionBoxes);
+
         let visBoxes = "";
         let sceneVis = document.getElementsByName('visibility');
         for (let l = 0; l < sceneVis.length; l++) {
@@ -212,8 +213,8 @@ export default class SetSessionStorage {
         if (document.getElementById('sceneSurfaceOther')) {
             sessionStorage.setItem('sceneSurfaceOther', document.getElementById('sceneSurfaceOther').value);
         }
-
         sessionStorage.setItem('sceneVisibility', visBoxes);
+
         if (document.getElementById('temperatureCold').checked) {
             sessionStorage.setItem('temp', document.getElementById('temperatureCold').value);
         } else if (document.getElementById('temperatureMild').checked) {
@@ -317,16 +318,7 @@ export default class SetSessionStorage {
         //REPORT COMPLETER-------------------------------------------------------------------------------------------------
         sessionStorage.setItem('reportCompleter', document.getElementById('reportCompleter_0').value);
         sessionStorage.setItem('dateComplete', document.getElementById('dateComplete').value);
-/*
-        //SUBMIT FORM TO RESULTS-------------------------------------------------------------------------------------------
-        window.open('pages/results2016.html', '_self', false);
-        if (document.getElementById('equipAlpine').checked && document.getElementById('ownerRent').checked || document.getElementById('ownerDemo').checked) {
-            window.open('pages/skiRental.html', '_blank', false);
-        }
-        if (document.getElementById('helmetRentalYes').checked) {
-            window.open('pages/helmetRental.html', '_blank', false);
-        }
-*/
+
         return false;
     }
 }

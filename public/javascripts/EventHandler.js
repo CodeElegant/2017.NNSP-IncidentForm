@@ -289,6 +289,7 @@ export default class EventHandler {
     }
 
     handleWitnesses(count) {
+        //https://stackoverflow.com/questions/24162552/stop-input-from-clearing-on-innerhtml-insert
         let labelCount = count + 1;
         let witnessDiv = document.createElement('div');
         witnessDiv.className = "row";
@@ -321,31 +322,49 @@ export default class EventHandler {
                     <input name="w${count}City" id="w${count}City" type="none" hidden>
                     <input name="w${count}" id="w${count}State" type="none" hidden>
         `;
-        document.getElementById("addWitness").addEventListener("click", () => {
-            document.getElementById("witness").appendChild(witnessDiv);
+        let removeClick;
+        document.getElementById("addWitness").addEventListener("click", removeClick = () => {
+            document.getElementById("addWitness").removeEventListener('click', removeClick);
+            document.getElementById("addWitness").disabled = true;
+            document.getElementById("addWitness").classList.add('disabled');
+            document.getElementById("addWitness").removeEventListener('click', removeClick);
+            document.getElementById("witnesses").appendChild(witnessDiv);
             document.getElementById(witnessDiv.id).innerHTML += witness;
-            document.getElementById(`w${count}Zip`).addEventListener("blur", () => {
-                for (let element of this.zipData) {
-                    if (document.getElementById(`w${count}Zip`).value === element[0]) {
-                        document.getElementById(`w${count}City`).value = element[1];
-                        document.getElementById(`w${count}State`).value = element[2];
-                        break;
+            let removeMe;
+            document.getElementById(`w${count}Zip`).addEventListener("blur",  removeMe = () => {
+                if (document.getElementById(`w${count}Zip`).value) {
+                    for (let element of this.zipData) {
+                        if (document.getElementById(`w${count}Zip`).value === element[0]) {
+                            document.getElementById(`w${count}City`).value = element[1];
+                            document.getElementById(`w${count}State`).value = element[2];
+                            document.getElementById(`w${count}Zip`).removeEventListener("change", removeMe);
+                            document.getElementById("addWitness").disabled = false;
+                            document.getElementById("addWitness").classList.remove('disabled');
+                            count++;
+                            return this.handleWitnesses(count);
+                        }
                     }
                 }
-                count++;
             });
-            return this.handleWitnesses(count);
         });
     }
 
     handleSubmit() {
         document.getElementById("submit").addEventListener("click", () => {
             let data = new FormData(document.querySelector("#mainForm"));
-            this.performAjax("XHR5", data, (response) => {
+            //disabled DB functionality until requested
+            /*this.performAjax("XHR5", data, (response) => {
                 console.log(response);
-            });
+            });*/
             new SetSessionStorage();
             window.open('/public/views/results.html', '_blank', 'location=yes,height=800,width=800,scrollbars=yes,status=yes');
+            if (document.getElementById('equipAlpine').checked && document.getElementById('ownerRent').checked || document.getElementById('ownerDemo').checked) {
+                window.open('/public/views/skiRental.html', '_blank', 'location=yes,height=800,width=800,scrollbars=yes,status=yes');
+            }
+            if (document.getElementById('helmetRentalYes').checked) {
+                window.open('/public/views/helmetRental.html', '_blank', 'location=yes,height=800,width=800,scrollbars=yes,status=yes');
+            }
+
         });
     }
 

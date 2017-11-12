@@ -6,12 +6,6 @@ import EventHandler from './EventHandler.js';
 class main {
     constructor() {
         let date = new Date();
-/*        this._date = null;
-        this._month = null;
-        this._day = null;
-        this._year = null;
-        this._weekday = null;
-        this._fullDate = null;*/
         this.date = date;
         this.month = this.date.getMonth() + 1;
         this.day = this.date.getDate();
@@ -58,13 +52,6 @@ class main {
         document.getElementById('day').value = days[this.weekday];
         document.getElementById('date').value = this.fullDate;
     }
-
-/*
-    setDifficulty(value) {
-        let difficultyList = ["Easier", "More Difficult", "Most Difficult", "Experts Only"];
-        document.getElementById("difficulty").value = difficultyList[value - 1];
-    }
-*/
 }
 
 window.addEventListener('load', () => {
