@@ -351,20 +351,22 @@ export default class EventHandler {
 
     handleSubmit() {
         document.getElementById("submit").addEventListener("click", () => {
-            let data = new FormData(document.querySelector("#mainForm"));
-            //disabled DB functionality until requested
-            /*this.performAjax("XHR5", data, (response) => {
-                console.log(response);
-            });*/
-            new SetSessionStorage();
-            window.open('/public/views/results.html', '_blank', 'location=yes,height=900,width=1000,scrollbars=yes,status=yes');
-            if (document.getElementById('equipAlpine').checked && document.getElementById('ownerRent').checked || document.getElementById('ownerDemo').checked) {
-                window.open('/public/views/skiRental.html', '_blank', 'location=yes,height=900,width=950,scrollbars=yes,status=yes');
+            if (document.getElementById("mainForm").checkValidity()) {
+                //disabled DB functionality until requested
+                /*let data = new FormData(document.querySelector("#mainForm"));
+                this.performAjax("XHR5", data, (response) => {
+                    console.log(response);
+                });*/
+                new SetSessionStorage();
+                window.open('/public/views/results.html', '_blank', 'location=yes,height=900,width=1000,scrollbars=yes,status=yes');
+                if (document.getElementById('equipAlpine').checked && document.getElementById('ownerRent').checked || document.getElementById('ownerDemo').checked) {
+                    window.open('/public/views/skiRental.html', '_blank', 'location=yes,height=900,width=950,scrollbars=yes,status=yes');
+                }
+                if (document.getElementById('helmetRentalYes').checked) {
+                    window.open('/public/views/helmetRental.html', '_blank', 'location=yes,height=900,width=900,scrollbars=yes,status=yes');
+                }
             }
-            if (document.getElementById('helmetRentalYes').checked) {
-                window.open('/public/views/helmetRental.html', '_blank', 'location=yes,height=900,width=900,scrollbars=yes,status=yes');
-            }
-
+            return false;
         });
     }
 

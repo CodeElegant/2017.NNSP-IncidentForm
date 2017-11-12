@@ -12,7 +12,7 @@
 	</div>
 </div>
 <div class="panel radius">
-	<form id="mainForm" novalidate>
+	<form id="mainForm" action="javascript:0">
 		<div class="row">
 			<fieldset id="dateTime">
             <legend>Date &amp; Time</legend>
@@ -54,7 +54,8 @@
 				<fieldset id="buttons">
 					<div class="row">
 						<div class="small-3 columns">
-							<span class="button large" id="submit">Completed!</span>
+							<input type='submit' id='submit' value='Completed!' class="button large">
+							<!--<span class="button large" id="submit">Completed!</span>-->
 						</div>
 						<div class="small-3 columns float-right">
 							<a href="#" class="button large alert float-right" id="reset">Reset Form</a>
