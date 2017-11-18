@@ -25,6 +25,7 @@ export default class EventHandler {
         this.handleWitnesses(0);
         this.handlePatrollers("reportCompleter", 0);
         this.handleSubmit();
+        this.handleReset();
     }
 
     loadZipData() {
@@ -367,6 +368,12 @@ export default class EventHandler {
                 }
             }
             return false;
+        });
+    }
+
+    handleReset() {
+        document.getElementById("reset").addEventListener("click", () => {
+            window.location.reload();
         });
     }
 
