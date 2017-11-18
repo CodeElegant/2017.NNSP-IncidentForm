@@ -372,7 +372,10 @@ export default class EventHandler {
     }
 
     handleReset() {
-        document.getElementById("reset").addEventListener("click", () => {
+        document.getElementById("reset1").addEventListener("click", () => {
+            window.location.reload();
+        });
+        document.getElementById("reset2").addEventListener("click", () => {
             window.location.reload();
         });
     }
