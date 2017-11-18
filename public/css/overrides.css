@@ -12,65 +12,105 @@
   box-shadow: 0 0 10px 0 rgba(0, 255, 0, 0.67); }
 
 @media print {
-  body {
-    font-size: 9px;
-    margin: 0; }
+  form {
+    display: none !important; }
 
-  h4 {
-    margin-bottom: -19px; }
+  #topMast {
+    display: none !important; }
 
-  fieldset {
-    padding-top: 2px;
-    padding-bottom: 2px; }
+  #noPrint {
+    display: block !important; }
 
-  .label {
-    font-size: 9px;
-    font-weight: bold; }
+  #noPrint h1 {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important; }
 
-  .small-1 {
-    width: 8.33333%; }
+  #warnPic {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important; } }
+/*
+@media print {
+	body {
+		font-size: 9px;
+		margin: 0;
+	}
 
-  .small-2 {
-    width: 16.66667%; }
+	h4 {
+		margin-bottom: -19px;
+	}
 
-  .small-3 {
-    width: 25%; }
+	fieldset {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
 
-  .small-4 {
-    width: 33.33333%; }
+	.label {
+		font-size: 9px;
+		font-weight: bold;
+	}
 
-  .small-5 {
-    width: 41.66667%; }
+	.small-1 {
+		width: 8.33333%;
+	}
 
-  .small-6 {
-    width: 50%; }
+	.small-2 {
+		width: 16.66667%;
+	}
 
-  .small-7 {
-    width: 58.33333%; }
+	.small-3 {
+		width: 25%;
+	}
 
-  .small-8 {
-    width: 66.66667%; }
+	.small-4 {
+		width: 33.33333%;
+	}
 
-  .small-9 {
-    width: 75%; }
+	.small-5 {
+		width: 41.66667%;
+	}
 
-  .small-10 {
-    width: 83.33333%; }
+	.small-6 {
+		width: 50%;
+	}
 
-  .small-11 {
-    width: 91.66667%; }
+	.small-7 {
+		width: 58.33333%;
+	}
 
-  .small-12 {
-    width: 100%; }
+	.small-8 {
+		width: 66.66667%;
+	}
 
-  .fullWidth {
-    width: 100%;
-    margin: 0 auto -30px 0;
-    max-width: initial; }
+	.small-9 {
+		width: 75%;
+	}
 
-  .columns {
-    padding-right: 0;
-    padding-left: 0; } }
+	.small-10 {
+		width: 83.33333%;
+	}
+
+	.small-11 {
+		width: 91.66667%;
+	}
+
+	.small-12 {
+		width: 100%;
+	}
+
+     .fullWidth {
+	     width: 100%;
+	     margin: 0 auto -30px 0;
+	     max-width: initial;
+     }
+
+	.columns {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+*/
 .col-1 {
   display: inline-block;
   position: relative;
